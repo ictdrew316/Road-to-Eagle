@@ -1,0 +1,469 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Merit Badge Tracker — Admin</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&display=swap');
+
+:root{
+  --bg:#EFEFEF; --surface:#FFFFFF; --surface-2:#F5F5F5; --border:#E1E1E1;
+  --ink:#2B2B2B; --ink-2:#666666; --ink-3:#9A9A9A;
+  --red:#C8102E; --red-dark:#A50D26; --red-ink:#FFFFFF;
+  --blue:#0B5FA5; --blue-soft:#EAF2FA; --blue-soft-border:#C6DEF2;
+  --gold-soft:#F6E0AE; --gold-soft-border:#E0BE6E; --gold-ink:#7A5A10;
+  --green:#1D7A3D; --green-soft:#E3F3E7; --green-soft-border:#B6DEC2;
+  --alert-soft:#FBE1DE; --alert-soft-border:#E9B3AC; --alert-ink:#A5301B;
+  --shadow: 0 1px 2px rgba(0,0,0,.05), 0 4px 14px -8px rgba(0,0,0,.18);
+  --focus:#0B5FA5;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#17181A; --surface:#202225; --surface-2:#26282B; --border:#36383B;
+    --ink:#ECECEC; --ink-2:#AEAEAE; --ink-3:#7C7C7C;
+    --red:#DC2F4E; --red-dark:#C8102E; --red-ink:#FFFFFF;
+    --blue:#5FADEB; --blue-soft:#1C2C3B; --blue-soft-border:#2C4A64;
+    --gold-soft:#4A3B14; --gold-soft-border:#6B5620; --gold-ink:#F0D48A;
+    --green:#4CBB6E; --green-soft:#173A24; --green-soft-border:#2C5C3C;
+    --alert-soft:#3A2320; --alert-soft-border:#6B3A32; --alert-ink:#F0A090;
+    --shadow: 0 1px 2px rgba(0,0,0,.35), 0 10px 26px -12px rgba(0,0,0,.55);
+    --focus:#5FADEB;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#17181A; --surface:#202225; --surface-2:#26282B; --border:#36383B;
+  --ink:#ECECEC; --ink-2:#AEAEAE; --ink-3:#7C7C7C;
+  --red:#DC2F4E; --red-dark:#C8102E; --red-ink:#FFFFFF;
+  --blue:#5FADEB; --blue-soft:#1C2C3B; --blue-soft-border:#2C4A64;
+  --gold-soft:#4A3B14; --gold-soft-border:#6B5620; --gold-ink:#F0D48A;
+  --green:#4CBB6E; --green-soft:#173A24; --green-soft-border:#2C5C3C;
+  --alert-soft:#3A2320; --alert-soft-border:#6B3A32; --alert-ink:#F0A090;
+  --shadow: 0 1px 2px rgba(0,0,0,.35), 0 10px 26px -12px rgba(0,0,0,.55);
+  --focus:#5FADEB;
+}
+
+*{ box-sizing:border-box; }
+html{ font-size:17px; }
+body{
+  margin:0; background:var(--bg); color:var(--ink);
+  font-family:'IBM Plex Sans', Arial, system-ui, sans-serif; line-height:1.5;
+  -webkit-font-smoothing:antialiased;
+}
+.wrap{ max-width:820px; margin:0 auto; padding:0 24px 80px; }
+h1,h2,h3{ font-family:inherit; margin:0; }
+a{ color:var(--blue); }
+button, select, input{ font-family:inherit; }
+:focus-visible{ outline:2px solid var(--focus); outline-offset:2px; }
+
+header.top{ background:var(--red); color:var(--red-ink); padding:22px 0; margin-bottom:28px; }
+header.top .wrap{ display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:10px; }
+header.top h1{ font-size:1.35rem; font-weight:700; }
+header.top a{ color:var(--red-ink); opacity:.9; font-size:.85rem; text-decoration:underline; }
+
+.card{ background:var(--surface); border:1px solid var(--border); border-radius:12px; box-shadow:var(--shadow); padding:20px 22px; margin-bottom:20px; }
+.card h2{ font-size:1.05rem; margin-bottom:4px; }
+.card .sub{ font-size:.85rem; color:var(--ink-2); margin-bottom:16px; }
+.card.disabled{ opacity:.5; pointer-events:none; }
+.step-badge{ display:inline-flex; align-items:center; justify-content:center; width:22px; height:22px; border-radius:50%; background:var(--blue); color:#fff; font-size:.75rem; font-weight:700; margin-right:8px; flex:none; }
+.card h2{ display:flex; align-items:center; }
+.step-badge.done{ background:var(--green); }
+
+label{ display:block; font-size:.82rem; font-weight:600; color:var(--ink-2); margin:12px 0 5px; }
+label:first-child{ margin-top:0; }
+input[type="text"], input[type="password"]{
+  width:100%; padding:9px 12px; border-radius:8px; border:1px solid var(--border);
+  background:var(--surface); color:var(--ink); font-size:.92rem;
+}
+.row2{ display:grid; grid-template-columns:1fr 1fr; gap:12px; }
+.row3{ display:grid; grid-template-columns:2fr 1fr 1fr; gap:12px; }
+@media (max-width:560px){ .row2,.row3{ grid-template-columns:1fr; } }
+
+.hint{ font-size:.78rem; color:var(--ink-3); margin-top:5px; }
+.btn{
+  display:inline-flex; align-items:center; gap:6px; border-radius:999px; border:1.5px solid var(--blue);
+  background:var(--surface); color:var(--blue); font-weight:600; font-size:.88rem; padding:9px 18px;
+  cursor:pointer; margin-top:14px;
+}
+.btn.primary{ background:var(--blue); color:#fff; }
+.btn.primary:disabled{ opacity:.45; cursor:not-allowed; }
+.btn:disabled{ opacity:.45; cursor:not-allowed; }
+.btn.danger{ border-color:var(--alert-ink); color:var(--alert-ink); }
+
+.file-drop{
+  border:2px dashed var(--border); border-radius:10px; padding:24px; text-align:center;
+  color:var(--ink-2); font-size:.88rem; cursor:pointer; background:var(--surface-2);
+}
+.file-drop.over{ border-color:var(--blue); background:var(--blue-soft); }
+.file-list{ margin-top:12px; display:flex; flex-direction:column; gap:6px; }
+.file-item{ display:flex; justify-content:space-between; font-size:.85rem; background:var(--surface-2); border:1px solid var(--border); border-radius:8px; padding:7px 11px; }
+.file-item .rm{ color:var(--alert-ink); cursor:pointer; font-weight:600; }
+
+.status{ font-size:.85rem; padding:10px 14px; border-radius:8px; margin-top:12px; }
+.status.ok{ background:var(--green-soft); border:1px solid var(--green-soft-border); color:var(--green); }
+.status.err{ background:var(--alert-soft); border:1px solid var(--alert-soft-border); color:var(--alert-ink); }
+.status.info{ background:var(--blue-soft); border:1px solid var(--blue-soft-border); color:var(--blue); }
+
+.stat-row{ display:grid; grid-template-columns:repeat(4,1fr); gap:10px; margin:14px 0; }
+@media (max-width:560px){ .stat-row{ grid-template-columns:repeat(2,1fr); } }
+.stat{ background:var(--surface-2); border:1px solid var(--border); border-radius:10px; padding:12px 14px; }
+.stat .n{ font-size:1.3rem; font-weight:700; }
+.stat .l{ font-size:.72rem; color:var(--ink-2); margin-top:2px; }
+
+.diff-list{ display:flex; flex-direction:column; gap:6px; margin-top:10px; max-height:280px; overflow-y:auto; }
+.diff-row{ display:flex; justify-content:space-between; gap:10px; font-size:.82rem; padding:7px 11px; border-radius:8px; background:var(--surface-2); border:1px solid var(--border); }
+.diff-row .tag{ font-size:.68rem; font-weight:700; padding:2px 8px; border-radius:999px; flex:none; }
+.tag.up{ background:var(--green-soft); color:var(--green); border:1px solid var(--green-soft-border); }
+.tag.new{ background:var(--blue-soft); color:var(--blue); border:1px solid var(--blue-soft-border); }
+.tag.gone{ background:var(--alert-soft); color:var(--alert-ink); border:1px solid var(--alert-soft-border); }
+.tag.eagle{ background:var(--gold-soft); color:var(--gold-ink); border:1px solid var(--gold-soft-border); }
+.empty-note{ font-size:.82rem; color:var(--ink-3); font-style:italic; }
+
+.token-row{ display:flex; gap:8px; align-items:flex-end; }
+.token-row input{ flex:1; }
+.small-link{ font-size:.8rem; }
+footer{ font-size:.78rem; color:var(--ink-3); text-align:center; margin-top:30px; }
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <h1>Merit Badge Tracker — Admin</h1>
+    <a href="../">&larr; Back to tracker</a>
+  </div>
+</header>
+
+<div class="wrap">
+
+  <div class="card">
+    <h2><span class="step-badge" id="stepBadge1">1</span>Connect to GitHub</h2>
+    <div class="sub">Each admin uses their own GitHub personal access token, scoped to just this repo. Nothing here is sent anywhere except GitHub's API — your token stays in this browser only.</div>
+
+    <div class="row3">
+      <div>
+        <label for="repoOwner">Repo owner / org</label>
+        <input type="text" id="repoOwner" placeholder="e.g. akon316">
+      </div>
+      <div>
+        <label for="repoName">Repo name</label>
+        <input type="text" id="repoName" placeholder="e.g. troop-mb-tracker">
+      </div>
+      <div>
+        <label for="repoBranch">Branch</label>
+        <input type="text" id="repoBranch" placeholder="main" value="main">
+      </div>
+    </div>
+    <label for="dataPath">Data file path</label>
+    <input type="text" id="dataPath" value="data/tracker-data.json">
+
+    <label for="ghToken">GitHub personal access token</label>
+    <div class="token-row">
+      <input type="password" id="ghToken" placeholder="github_pat_...">
+      <button class="btn" id="btnToggleToken" type="button">Show</button>
+    </div>
+    <div class="hint">
+      Need a token? On GitHub: Settings &rarr; Developer settings &rarr; Personal access tokens &rarr; Fine-grained tokens &rarr; Generate new token.
+      Set <b>Resource owner</b> to this repo's account, <b>Repository access</b> to only this repo, and under <b>Permissions</b> grant <b>Contents: Read and write</b>. That's the only permission it needs.
+    </div>
+
+    <button class="btn primary" id="btnConnect" type="button">Connect</button>
+    <button class="btn danger" id="btnForget" type="button" style="display:none;">Forget saved token</button>
+    <div id="connectStatus"></div>
+  </div>
+
+  <div class="card disabled" id="cardUpload">
+    <h2><span class="step-badge" id="stepBadge2">2</span>Upload Scoutbook export(s)</h2>
+    <div class="sub">Upload the "Merit Badge In-Progress Report" CSV export for each troop — from Scoutbook, export &rarr; Merit Badge In-Progress Report. You can drop multiple files at once.</div>
+
+    <div class="file-drop" id="fileDrop">
+      Drop CSV files here, or click to choose
+      <input type="file" id="fileInput" accept=".csv" multiple style="display:none;">
+    </div>
+    <div class="file-list" id="fileList"></div>
+
+    <button class="btn primary" id="btnParse" type="button" disabled>Parse &amp; preview</button>
+    <div id="parseStatus"></div>
+  </div>
+
+  <div class="card disabled" id="cardReview">
+    <h2><span class="step-badge" id="stepBadge3">3</span>Review changes</h2>
+    <div class="sub">Compare against what's currently published before you publish the update.</div>
+
+    <div class="stat-row" id="reviewStats"></div>
+    <div id="reviewDiff"></div>
+
+    <button class="btn primary" id="btnPublish" type="button">Publish to GitHub</button>
+    <div id="publishStatus"></div>
+  </div>
+
+</div>
+
+<footer>Merit Badge Tracker admin portal &middot; runs entirely in your browser, talks only to the GitHub API</footer>
+
+<script src="parser.js"></script>
+<script>
+(function(){
+  "use strict";
+
+  const LS_KEYS = { owner:'mbt_owner', repo:'mbt_repo', branch:'mbt_branch', path:'mbt_path', token:'mbt_token' };
+
+  const el = id => document.getElementById(id);
+  const ownerEl = el('repoOwner'), repoEl = el('repoName'), branchEl = el('repoBranch'),
+        pathEl = el('dataPath'), tokenEl = el('ghToken');
+
+  // restore saved connection info (not the token, unless previously saved) from localStorage
+  try {
+    if(localStorage.getItem(LS_KEYS.owner)) ownerEl.value = localStorage.getItem(LS_KEYS.owner);
+    if(localStorage.getItem(LS_KEYS.repo)) repoEl.value = localStorage.getItem(LS_KEYS.repo);
+    if(localStorage.getItem(LS_KEYS.branch)) branchEl.value = localStorage.getItem(LS_KEYS.branch);
+    if(localStorage.getItem(LS_KEYS.path)) pathEl.value = localStorage.getItem(LS_KEYS.path);
+    if(localStorage.getItem(LS_KEYS.token)){
+      tokenEl.value = localStorage.getItem(LS_KEYS.token);
+      el('btnForget').style.display = 'inline-flex';
+    }
+  } catch(e){ /* localStorage unavailable -- fine, just won't persist */ }
+
+  el('btnToggleToken').addEventListener('click', ()=>{
+    tokenEl.type = tokenEl.type === 'password' ? 'text' : 'password';
+    el('btnToggleToken').textContent = tokenEl.type === 'password' ? 'Show' : 'Hide';
+  });
+
+  el('btnForget').addEventListener('click', ()=>{
+    try {
+      Object.values(LS_KEYS).forEach(k=>localStorage.removeItem(k));
+    } catch(e){}
+    tokenEl.value = '';
+    el('btnForget').style.display = 'none';
+    setStatus('connectStatus', 'Saved token cleared from this browser.', 'info');
+  });
+
+  function setStatus(id, msg, kind){
+    const d = el(id);
+    d.innerHTML = msg ? `<div class="status ${kind}">${msg}</div>` : '';
+  }
+
+  function ghHeaders(token){
+    return {
+      'Authorization': 'Bearer ' + token,
+      'Accept': 'application/vnd.github+json',
+      'X-GitHub-Api-Version': '2022-11-28',
+    };
+  }
+
+  let connection = null; // { owner, repo, branch, path, token }
+
+  el('btnConnect').addEventListener('click', async ()=>{
+    const owner = ownerEl.value.trim();
+    const repo = repoEl.value.trim();
+    const branch = branchEl.value.trim() || 'main';
+    const path = pathEl.value.trim() || 'data/tracker-data.json';
+    const token = tokenEl.value.trim();
+
+    if(!owner || !repo || !token){
+      setStatus('connectStatus', 'Fill in the repo owner, repo name, and your token.', 'err');
+      return;
+    }
+
+    setStatus('connectStatus', 'Checking access&hellip;', 'info');
+    try {
+      const res = await fetch(`https://api.github.com/repos/${owner}/${repo}`, { headers: ghHeaders(token) });
+      if(res.status === 404){
+        setStatus('connectStatus', `Can't find ${owner}/${repo} with this token. Check the owner/repo name and that the token's repository access includes this repo.`, 'err');
+        return;
+      }
+      if(!res.ok){
+        setStatus('connectStatus', `GitHub rejected the token (HTTP ${res.status}). Double-check it hasn't expired and has Contents: Read and write.`, 'err');
+        return;
+      }
+      const repoInfo = await res.json();
+      const canPush = repoInfo.permissions && repoInfo.permissions.push;
+      if(!canPush){
+        setStatus('connectStatus', `Connected, but this token doesn't appear to have write access to ${owner}/${repo}. You'll be able to preview but publishing will fail -- check the token's Contents permission.`, 'err');
+      } else {
+        setStatus('connectStatus', `Connected to ${owner}/${repo} (branch: ${branch}) with write access.`, 'ok');
+      }
+
+      connection = { owner, repo, branch, path, token };
+      try {
+        localStorage.setItem(LS_KEYS.owner, owner);
+        localStorage.setItem(LS_KEYS.repo, repo);
+        localStorage.setItem(LS_KEYS.branch, branch);
+        localStorage.setItem(LS_KEYS.path, path);
+        localStorage.setItem(LS_KEYS.token, token);
+        el('btnForget').style.display = 'inline-flex';
+      } catch(e){}
+
+      el('stepBadge1').classList.add('done');
+      el('cardUpload').classList.remove('disabled');
+    } catch(err){
+      setStatus('connectStatus', 'Network error reaching GitHub: ' + err.message, 'err');
+    }
+  });
+
+  // ---------- Step 2: upload & parse ----------
+  let uploadedFiles = []; // [{name, text}]
+
+  const fileDrop = el('fileDrop'), fileInput = el('fileInput');
+  fileDrop.addEventListener('click', ()=>fileInput.click());
+  fileDrop.addEventListener('dragover', e=>{ e.preventDefault(); fileDrop.classList.add('over'); });
+  fileDrop.addEventListener('dragleave', ()=>fileDrop.classList.remove('over'));
+  fileDrop.addEventListener('drop', e=>{
+    e.preventDefault(); fileDrop.classList.remove('over');
+    handleFiles(e.dataTransfer.files);
+  });
+  fileInput.addEventListener('change', ()=>handleFiles(fileInput.files));
+
+  function handleFiles(fileListObj){
+    const files = Array.from(fileListObj).filter(f=>f.name.toLowerCase().endsWith('.csv'));
+    let pending = files.length;
+    if(!pending) return;
+    files.forEach(f=>{
+      const reader = new FileReader();
+      reader.onload = ()=>{
+        uploadedFiles.push({ name: f.name, text: reader.result });
+        pending--;
+        if(pending === 0) renderFileList();
+      };
+      reader.readAsText(f);
+    });
+  }
+
+  function renderFileList(){
+    el('fileList').innerHTML = uploadedFiles.map((f,i)=>
+      `<div class="file-item"><span>${f.name}</span><span class="rm" data-i="${i}">remove</span></div>`
+    ).join('');
+    el('btnParse').disabled = uploadedFiles.length === 0;
+    el('fileList').querySelectorAll('.rm').forEach(btn=>{
+      btn.addEventListener('click', ()=>{
+        uploadedFiles.splice(Number(btn.getAttribute('data-i')), 1);
+        renderFileList();
+      });
+    });
+  }
+
+  let newData = null, oldData = null, oldSha = null;
+
+  el('btnParse').addEventListener('click', async ()=>{
+    setStatus('parseStatus', 'Parsing&hellip;', 'info');
+    try {
+      newData = TrackerParser.build(uploadedFiles);
+    } catch(err){
+      setStatus('parseStatus', 'Could not parse those files: ' + err.message + '. Make sure they\'re unmodified Scoutbook "Merit Badge In-Progress Report" CSV exports.', 'err');
+      return;
+    }
+    if(!newData.scouts.length){
+      setStatus('parseStatus', 'No scouts found in those files -- check you uploaded the right export.', 'err');
+      return;
+    }
+    setStatus('parseStatus', `Parsed ${newData.scouts.length} scouts across ${uploadedFiles.length} file(s).`, 'ok');
+    el('stepBadge2').classList.add('done');
+    el('cardReview').classList.remove('disabled');
+    await loadCurrentAndDiff();
+  });
+
+  // ---------- Step 3: review & publish ----------
+  async function loadCurrentAndDiff(){
+    setStatus('publishStatus', '', '');
+    oldData = null; oldSha = null;
+    try {
+      const res = await fetch(
+        `https://api.github.com/repos/${connection.owner}/${connection.repo}/contents/${connection.path}?ref=${encodeURIComponent(connection.branch)}`,
+        { headers: ghHeaders(connection.token) }
+      );
+      if(res.ok){
+        const info = await res.json();
+        oldSha = info.sha;
+        const decoded = decodeURIComponent(escape(atob(info.content.replace(/\n/g,''))));
+        oldData = JSON.parse(decoded);
+      } else if(res.status === 404){
+        oldData = null; oldSha = null; // first publish -- nothing to diff against
+      } else {
+        setStatus('reviewDiff', `Couldn't fetch the currently published data (HTTP ${res.status}) -- showing new data only.`, 'err');
+      }
+    } catch(err){
+      setStatus('reviewDiff', "Couldn't reach GitHub to load the current data for comparison: " + err.message, 'err');
+    }
+    renderReview();
+  }
+
+  function renderReview(){
+    const eagleReady = newData.scouts.filter(s=>s.eagle_ready).length;
+    const totalBadgesInProgress = newData.scouts.reduce((a,s)=>a+s.in_progress.length,0);
+    el('reviewStats').innerHTML = `
+      <div class="stat"><div class="n">${newData.scouts.length}</div><div class="l">Scouts</div></div>
+      <div class="stat"><div class="n">${eagleReady}</div><div class="l">Eagle ready</div></div>
+      <div class="stat"><div class="n">${totalBadgesInProgress}</div><div class="l">Badges in progress</div></div>
+      <div class="stat"><div class="n">${newData.export_date}</div><div class="l">Export date</div></div>
+    `;
+
+    if(!oldData){
+      el('reviewDiff').innerHTML = `<div class="empty-note">No previously published data to compare against -- this will be the first publish.</div>`;
+    } else {
+      const oldByName = new Map(oldData.scouts.map(s=>[s.name, s]));
+      const newByName = new Map(newData.scouts.map(s=>[s.name, s]));
+      const rows = [];
+      for(const [name, ns] of newByName){
+        const os = oldByName.get(name);
+        if(!os){
+          rows.push({name, tag:'new', label:'new scout'});
+        } else {
+          if(ns.total !== os.total){
+            rows.push({name, tag:'up', label:`total ${os.total} &rarr; ${ns.total}`});
+          }
+          if(ns.eagle_ready && !os.eagle_ready){
+            rows.push({name, tag:'eagle', label:'now Eagle ready'});
+          }
+        }
+      }
+      for(const [name] of oldByName){
+        if(!newByName.has(name)) rows.push({name, tag:'gone', label:'not in this upload'});
+      }
+      if(!rows.length){
+        el('reviewDiff').innerHTML = `<div class="empty-note">No scout-level changes detected vs. the currently published data.</div>`;
+      } else {
+        el('reviewDiff').innerHTML = `<div class="diff-list">${rows.map(r=>
+          `<div class="diff-row"><span>${r.name}</span><span class="tag ${r.tag}">${r.label}</span></div>`
+        ).join('')}</div>`;
+      }
+    }
+  }
+
+  function utf8ToBase64(str){
+    return btoa(unescape(encodeURIComponent(str)));
+  }
+
+  el('btnPublish').addEventListener('click', async ()=>{
+    if(!connection || !newData) return;
+    setStatus('publishStatus', 'Publishing&hellip;', 'info');
+    el('btnPublish').disabled = true;
+    try {
+      const content = utf8ToBase64(JSON.stringify(newData, null, 2));
+      const body = {
+        message: `Update merit badge tracker data (${newData.export_date})`,
+        content,
+        branch: connection.branch,
+      };
+      if(oldSha) body.sha = oldSha;
+
+      const res = await fetch(
+        `https://api.github.com/repos/${connection.owner}/${connection.repo}/contents/${connection.path}`,
+        { method:'PUT', headers: { ...ghHeaders(connection.token), 'Content-Type':'application/json' }, body: JSON.stringify(body) }
+      );
+      if(!res.ok){
+        const errBody = await res.json().catch(()=>({}));
+        setStatus('publishStatus', `GitHub rejected the publish (HTTP ${res.status}): ${errBody.message||'unknown error'}`, 'err');
+        el('btnPublish').disabled = false;
+        return;
+      }
+      el('stepBadge3').classList.add('done');
+      setStatus('publishStatus', `Published. GitHub Pages will redeploy in a minute or two -- then the tracker will show this data.`, 'ok');
+    } catch(err){
+      setStatus('publishStatus', 'Network error while publishing: ' + err.message, 'err');
+      el('btnPublish').disabled = false;
+    }
+  });
+})();
+</script>
+</body>
+</html>
