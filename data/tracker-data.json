@@ -1,7 +1,7 @@
 {
   "export_date": "2026-09-14",
-  "export_note": "Built from Scoutbook's Merit Badge In-Progress Report (Troop 533 BOYS), generated 09/14/2026",
-  "troop_label": "Troop 533",
+  "export_note": "Built from Scoutbook's Merit Badge In-Progress Report (Troop 533 BOYS + Troop 1533 GIRLS), generated 09/14/2026",
+  "troop_label": "Troop 533 & 1533",
   "required_fixed": [
     "Camping",
     "Citizenship in the Community",
@@ -30,6 +30,172 @@
     ]
   },
   "scouts": [
+    {
+      "member_id": 141171903,
+      "name": "Addie Hynek",
+      "troop": 1533,
+      "rank": "Tenderfoot",
+      "total": 9,
+      "er": 2,
+      "need_er": 11,
+      "need_total": 12,
+      "eagle_ready": false,
+      "required_checklist": [
+        {
+          "type": "single",
+          "badge": "Camping",
+          "done": false,
+          "date": null
+        },
+        {
+          "type": "single",
+          "badge": "Citizenship in the Community",
+          "done": false,
+          "date": null
+        },
+        {
+          "type": "single",
+          "badge": "Citizenship in the Nation",
+          "done": false,
+          "date": null
+        },
+        {
+          "type": "single",
+          "badge": "Citizenship in the World",
+          "done": false,
+          "date": null
+        },
+        {
+          "type": "single",
+          "badge": "Communication",
+          "done": true,
+          "date": "06/18/2026"
+        },
+        {
+          "type": "single",
+          "badge": "Cooking",
+          "done": false,
+          "date": null
+        },
+        {
+          "type": "single",
+          "badge": "Family Life",
+          "done": false,
+          "date": null
+        },
+        {
+          "type": "single",
+          "badge": "First Aid",
+          "done": false,
+          "date": null
+        },
+        {
+          "type": "single",
+          "badge": "Personal Fitness",
+          "done": false,
+          "date": null
+        },
+        {
+          "type": "single",
+          "badge": "Personal Management",
+          "done": false,
+          "date": null
+        },
+        {
+          "type": "group",
+          "group": "Fitness (choose 1)",
+          "options": [
+            "Cycling",
+            "Hiking",
+            "Swimming"
+          ],
+          "earned": null,
+          "date": null,
+          "earned_options": []
+        },
+        {
+          "type": "group",
+          "group": "Safety (choose 1)",
+          "options": [
+            "Emergency Preparedness",
+            "Lifesaving"
+          ],
+          "earned": null,
+          "date": null,
+          "earned_options": []
+        },
+        {
+          "type": "group",
+          "group": "Environment (choose 1)",
+          "options": [
+            "Environmental Science",
+            "Sustainability"
+          ],
+          "earned": "Sustainability",
+          "date": "06/22/2026",
+          "earned_options": [
+            "Sustainability"
+          ]
+        }
+      ],
+      "awaiting_signoff": [],
+      "in_progress": [
+        {
+          "badge": "Archery",
+          "mbc": "",
+          "remaining": "5, (1 of 5A, 5B)",
+          "required": false
+        },
+        {
+          "badge": "Canoeing",
+          "mbc": "",
+          "remaining": "1, 1a, 1c, 2, 2, 3, 3a, 4, 4a, 5, 5b, 5c, 6, 6, 7, 7a, 7b, 7c, 7d, 8, 8a, 8b, 8c, 8d, 8e, 8f, 9, 9a, 9c, 9d, 9e, 9f, 9g, 9h",
+          "required": false
+        },
+        {
+          "badge": "Kayaking",
+          "mbc": "",
+          "remaining": "6, 6d, 8, 8c",
+          "required": false
+        },
+        {
+          "badge": "Theater",
+          "mbc": "",
+          "remaining": "2",
+          "required": false
+        }
+      ],
+      "elective_earned": [
+        {
+          "badge": "Programming",
+          "date": "06/21/2026"
+        },
+        {
+          "badge": "Art",
+          "date": "06/18/2026"
+        },
+        {
+          "badge": "Sculpture",
+          "date": "06/17/2026"
+        },
+        {
+          "badge": "Composite Materials",
+          "date": "12/08/2025"
+        },
+        {
+          "badge": "Game Design",
+          "date": "11/17/2025"
+        },
+        {
+          "badge": "Metalwork",
+          "date": "09/22/2025"
+        },
+        {
+          "badge": "Automotive Maintenance",
+          "date": "10/14/2024"
+        }
+      ]
+    },
     {
       "member_id": 134254402,
       "name": "Ari Hellon",
@@ -783,6 +949,246 @@
         {
           "badge": "Collections",
           "date": "09/18/2023"
+        }
+      ]
+    },
+    {
+      "member_id": 135695298,
+      "name": "Calliope Magouirk",
+      "troop": 1533,
+      "rank": "Star",
+      "total": 28,
+      "er": 9,
+      "need_er": 4,
+      "need_total": 0,
+      "eagle_ready": false,
+      "required_checklist": [
+        {
+          "type": "single",
+          "badge": "Camping",
+          "done": true,
+          "date": "08/09/2025"
+        },
+        {
+          "type": "single",
+          "badge": "Citizenship in the Community",
+          "done": false,
+          "date": null
+        },
+        {
+          "type": "single",
+          "badge": "Citizenship in the Nation",
+          "done": true,
+          "date": "06/18/2026"
+        },
+        {
+          "type": "single",
+          "badge": "Citizenship in the World",
+          "done": true,
+          "date": "06/18/2026"
+        },
+        {
+          "type": "single",
+          "badge": "Communication",
+          "done": true,
+          "date": "06/18/2026"
+        },
+        {
+          "type": "single",
+          "badge": "Cooking",
+          "done": true,
+          "date": "09/09/2024"
+        },
+        {
+          "type": "single",
+          "badge": "Family Life",
+          "done": false,
+          "date": null
+        },
+        {
+          "type": "single",
+          "badge": "First Aid",
+          "done": true,
+          "date": "06/07/2024"
+        },
+        {
+          "type": "single",
+          "badge": "Personal Fitness",
+          "done": true,
+          "date": "04/05/2024"
+        },
+        {
+          "type": "single",
+          "badge": "Personal Management",
+          "done": false,
+          "date": null
+        },
+        {
+          "type": "group",
+          "group": "Fitness (choose 1)",
+          "options": [
+            "Cycling",
+            "Hiking",
+            "Swimming"
+          ],
+          "earned": "Swimming",
+          "date": "06/21/2024",
+          "earned_options": [
+            "Swimming"
+          ]
+        },
+        {
+          "type": "group",
+          "group": "Safety (choose 1)",
+          "options": [
+            "Emergency Preparedness",
+            "Lifesaving"
+          ],
+          "earned": null,
+          "date": null,
+          "earned_options": []
+        },
+        {
+          "type": "group",
+          "group": "Environment (choose 1)",
+          "options": [
+            "Environmental Science",
+            "Sustainability"
+          ],
+          "earned": "Environmental Science",
+          "date": "06/19/2026",
+          "earned_options": [
+            "Environmental Science"
+          ]
+        }
+      ],
+      "awaiting_signoff": [],
+      "in_progress": [
+        {
+          "badge": "Coin Collecting",
+          "mbc": "",
+          "remaining": "4, 4a, 4b, 4c, 4d, 4e, 4f",
+          "required": false
+        },
+        {
+          "badge": "Geocaching",
+          "mbc": "",
+          "remaining": "8, (1 of 8a, 8b, 8c, 8d), 9",
+          "required": false
+        },
+        {
+          "badge": "Oceanography",
+          "mbc": "",
+          "remaining": "8, (1 of 8a, 8b, 8c)",
+          "required": false
+        },
+        {
+          "badge": "Pets",
+          "mbc": "",
+          "remaining": "1, 2, 3",
+          "required": false
+        },
+        {
+          "badge": "Rowing",
+          "mbc": "",
+          "remaining": "7",
+          "required": false
+        },
+        {
+          "badge": "Space Exploration",
+          "mbc": "Shad Plante",
+          "remaining": "2, 3, 3a, 3b, 3c, 3d, 3e, 3f, 3g, 3h, 3i, 4, 4b, 4d, 5, (1 of 5b, 5c), 6, (1 of 6a, 6b), 7, 7a, 7b, 7c, 7d",
+          "required": false
+        },
+        {
+          "badge": "Sustainability",
+          "mbc": "",
+          "remaining": "2, 2Energy, 2Stuff, 5, 5a, 5b",
+          "required": true
+        },
+        {
+          "badge": "Water Sports",
+          "mbc": "",
+          "remaining": "2, 2(, 5, (1 of 5()",
+          "required": false
+        }
+      ],
+      "elective_earned": [
+        {
+          "badge": "Programming",
+          "date": "06/21/2026"
+        },
+        {
+          "badge": "Composite Materials",
+          "date": "12/08/2025"
+        },
+        {
+          "badge": "Game Design",
+          "date": "11/17/2025"
+        },
+        {
+          "badge": "Welding",
+          "date": "09/27/2025"
+        },
+        {
+          "badge": "Soil and Water Conservation",
+          "date": "06/19/2025"
+        },
+        {
+          "badge": "Snow Sports",
+          "date": "02/24/2025"
+        },
+        {
+          "badge": "Automotive Maintenance",
+          "date": "10/14/2024"
+        },
+        {
+          "badge": "Forestry",
+          "date": "07/27/2024"
+        },
+        {
+          "badge": "Geology",
+          "date": "07/27/2024"
+        },
+        {
+          "badge": "Wilderness Survival",
+          "date": "07/27/2024"
+        },
+        {
+          "badge": "Fingerprinting",
+          "date": "07/01/2024"
+        },
+        {
+          "badge": "Photography",
+          "date": "06/21/2024"
+        },
+        {
+          "badge": "Weather",
+          "date": "06/21/2024"
+        },
+        {
+          "badge": "Animation",
+          "date": "06/07/2024"
+        },
+        {
+          "badge": "Wood Carving",
+          "date": "06/07/2024"
+        },
+        {
+          "badge": "Whitewater",
+          "date": "08/26/2023"
+        },
+        {
+          "badge": "Kayaking",
+          "date": "08/15/2023"
+        },
+        {
+          "badge": "Canoeing",
+          "date": "06/16/2023"
+        },
+        {
+          "badge": "American Heritage",
+          "date": "05/01/2023"
         }
       ]
     },
@@ -1766,6 +2172,224 @@
         {
           "badge": "Rifle Shooting",
           "date": "06/18/2026"
+        }
+      ]
+    },
+    {
+      "member_id": 14673110,
+      "name": "Gwyneth Hamker",
+      "troop": 1533,
+      "rank": "First Class",
+      "total": 19,
+      "er": 2,
+      "need_er": 11,
+      "need_total": 2,
+      "eagle_ready": false,
+      "required_checklist": [
+        {
+          "type": "single",
+          "badge": "Camping",
+          "done": false,
+          "date": null
+        },
+        {
+          "type": "single",
+          "badge": "Citizenship in the Community",
+          "done": false,
+          "date": null
+        },
+        {
+          "type": "single",
+          "badge": "Citizenship in the Nation",
+          "done": false,
+          "date": null
+        },
+        {
+          "type": "single",
+          "badge": "Citizenship in the World",
+          "done": false,
+          "date": null
+        },
+        {
+          "type": "single",
+          "badge": "Communication",
+          "done": false,
+          "date": null
+        },
+        {
+          "type": "single",
+          "badge": "Cooking",
+          "done": false,
+          "date": null
+        },
+        {
+          "type": "single",
+          "badge": "Family Life",
+          "done": false,
+          "date": null
+        },
+        {
+          "type": "single",
+          "badge": "First Aid",
+          "done": true,
+          "date": "07/27/2024"
+        },
+        {
+          "type": "single",
+          "badge": "Personal Fitness",
+          "done": false,
+          "date": null
+        },
+        {
+          "type": "single",
+          "badge": "Personal Management",
+          "done": false,
+          "date": null
+        },
+        {
+          "type": "group",
+          "group": "Fitness (choose 1)",
+          "options": [
+            "Cycling",
+            "Hiking",
+            "Swimming"
+          ],
+          "earned": null,
+          "date": null,
+          "earned_options": []
+        },
+        {
+          "type": "group",
+          "group": "Safety (choose 1)",
+          "options": [
+            "Emergency Preparedness",
+            "Lifesaving"
+          ],
+          "earned": null,
+          "date": null,
+          "earned_options": []
+        },
+        {
+          "type": "group",
+          "group": "Environment (choose 1)",
+          "options": [
+            "Environmental Science",
+            "Sustainability"
+          ],
+          "earned": "Sustainability",
+          "date": "06/22/2026",
+          "earned_options": [
+            "Sustainability"
+          ]
+        }
+      ],
+      "awaiting_signoff": [],
+      "in_progress": [
+        {
+          "badge": "Archery",
+          "mbc": "",
+          "remaining": "5, (1 of 5A, 5B), A, ) (1 of 5A, 5B)",
+          "required": false
+        },
+        {
+          "badge": "Cooking",
+          "mbc": "Bryce Stonehocker",
+          "remaining": "6, 6a, 6b, 6c, 6d, 6e, 6f",
+          "required": true
+        },
+        {
+          "badge": "Emergency Preparedness",
+          "mbc": "",
+          "remaining": "1, 3, 3a, 3c, 4, (1 of 4a, 4b), 8, 8b, 9*, 9b, 9c, 9d, 10, (1 of 10, 10a, 10b, 10c)",
+          "required": true
+        },
+        {
+          "badge": "Pioneering",
+          "mbc": "",
+          "remaining": "3, 3a, 3b, 3c, 7, 9",
+          "required": false
+        },
+        {
+          "badge": "Space Exploration",
+          "mbc": "Shad Plante",
+          "remaining": "2, 5, (1 of 5b, 5c), 7, 7a, 7b, 7c, 7d",
+          "required": false
+        },
+        {
+          "badge": "Wood Carving",
+          "mbc": "",
+          "remaining": "5, 6, 7",
+          "required": false
+        }
+      ],
+      "elective_earned": [
+        {
+          "badge": "Programming",
+          "date": "06/21/2026"
+        },
+        {
+          "badge": "Astronomy",
+          "date": "06/18/2026"
+        },
+        {
+          "badge": "Photography",
+          "date": "06/18/2026"
+        },
+        {
+          "badge": "Composite Materials",
+          "date": "12/08/2025"
+        },
+        {
+          "badge": "Game Design",
+          "date": "11/17/2025"
+        },
+        {
+          "badge": "Welding",
+          "date": "09/27/2025"
+        },
+        {
+          "badge": "Metalwork",
+          "date": "09/22/2025"
+        },
+        {
+          "badge": "Small-Boat Sailing",
+          "date": "06/26/2025"
+        },
+        {
+          "badge": "Art",
+          "date": "06/19/2025"
+        },
+        {
+          "badge": "Sculpture",
+          "date": "06/19/2025"
+        },
+        {
+          "badge": "Snow Sports",
+          "date": "02/24/2025"
+        },
+        {
+          "badge": "Chess",
+          "date": "12/13/2024"
+        },
+        {
+          "badge": "Canoeing",
+          "date": "07/27/2024"
+        },
+        {
+          "badge": "Kayaking",
+          "date": "07/27/2024"
+        },
+        {
+          "badge": "Coin Collecting",
+          "date": "07/08/2024"
+        },
+        {
+          "badge": "Fingerprinting",
+          "date": "06/17/2024"
+        },
+        {
+          "badge": "Horsemanship",
+          "date": "05/13/2024"
         }
       ]
     },
@@ -2979,6 +3603,361 @@
         {
           "badge": "Archery",
           "date": "06/19/2025"
+        }
+      ]
+    },
+    {
+      "member_id": 141797683,
+      "name": "Kyrie Brockmeyer",
+      "troop": 1533,
+      "rank": "",
+      "total": 1,
+      "er": 0,
+      "need_er": 13,
+      "need_total": 20,
+      "eagle_ready": false,
+      "required_checklist": [
+        {
+          "type": "single",
+          "badge": "Camping",
+          "done": false,
+          "date": null
+        },
+        {
+          "type": "single",
+          "badge": "Citizenship in the Community",
+          "done": false,
+          "date": null
+        },
+        {
+          "type": "single",
+          "badge": "Citizenship in the Nation",
+          "done": false,
+          "date": null
+        },
+        {
+          "type": "single",
+          "badge": "Citizenship in the World",
+          "done": false,
+          "date": null
+        },
+        {
+          "type": "single",
+          "badge": "Communication",
+          "done": false,
+          "date": null
+        },
+        {
+          "type": "single",
+          "badge": "Cooking",
+          "done": false,
+          "date": null
+        },
+        {
+          "type": "single",
+          "badge": "Family Life",
+          "done": false,
+          "date": null
+        },
+        {
+          "type": "single",
+          "badge": "First Aid",
+          "done": false,
+          "date": null
+        },
+        {
+          "type": "single",
+          "badge": "Personal Fitness",
+          "done": false,
+          "date": null
+        },
+        {
+          "type": "single",
+          "badge": "Personal Management",
+          "done": false,
+          "date": null
+        },
+        {
+          "type": "group",
+          "group": "Fitness (choose 1)",
+          "options": [
+            "Cycling",
+            "Hiking",
+            "Swimming"
+          ],
+          "earned": null,
+          "date": null,
+          "earned_options": []
+        },
+        {
+          "type": "group",
+          "group": "Safety (choose 1)",
+          "options": [
+            "Emergency Preparedness",
+            "Lifesaving"
+          ],
+          "earned": null,
+          "date": null,
+          "earned_options": []
+        },
+        {
+          "type": "group",
+          "group": "Environment (choose 1)",
+          "options": [
+            "Environmental Science",
+            "Sustainability"
+          ],
+          "earned": null,
+          "date": null,
+          "earned_options": []
+        }
+      ],
+      "awaiting_signoff": [],
+      "in_progress": [],
+      "elective_earned": [
+        {
+          "badge": "Metalwork",
+          "date": "09/22/2025"
+        }
+      ]
+    },
+    {
+      "member_id": 135695412,
+      "name": "Leah Burwell",
+      "troop": 1533,
+      "rank": "First Class",
+      "total": 18,
+      "er": 1,
+      "need_er": 12,
+      "need_total": 3,
+      "eagle_ready": false,
+      "required_checklist": [
+        {
+          "type": "single",
+          "badge": "Camping",
+          "done": false,
+          "date": null
+        },
+        {
+          "type": "single",
+          "badge": "Citizenship in the Community",
+          "done": false,
+          "date": null
+        },
+        {
+          "type": "single",
+          "badge": "Citizenship in the Nation",
+          "done": false,
+          "date": null
+        },
+        {
+          "type": "single",
+          "badge": "Citizenship in the World",
+          "done": false,
+          "date": null
+        },
+        {
+          "type": "single",
+          "badge": "Communication",
+          "done": false,
+          "date": null
+        },
+        {
+          "type": "single",
+          "badge": "Cooking",
+          "done": false,
+          "date": null
+        },
+        {
+          "type": "single",
+          "badge": "Family Life",
+          "done": false,
+          "date": null
+        },
+        {
+          "type": "single",
+          "badge": "First Aid",
+          "done": true,
+          "date": "07/27/2024"
+        },
+        {
+          "type": "single",
+          "badge": "Personal Fitness",
+          "done": false,
+          "date": null
+        },
+        {
+          "type": "single",
+          "badge": "Personal Management",
+          "done": false,
+          "date": null
+        },
+        {
+          "type": "group",
+          "group": "Fitness (choose 1)",
+          "options": [
+            "Cycling",
+            "Hiking",
+            "Swimming"
+          ],
+          "earned": null,
+          "date": null,
+          "earned_options": []
+        },
+        {
+          "type": "group",
+          "group": "Safety (choose 1)",
+          "options": [
+            "Emergency Preparedness",
+            "Lifesaving"
+          ],
+          "earned": null,
+          "date": null,
+          "earned_options": []
+        },
+        {
+          "type": "group",
+          "group": "Environment (choose 1)",
+          "options": [
+            "Environmental Science",
+            "Sustainability"
+          ],
+          "earned": null,
+          "date": null,
+          "earned_options": []
+        }
+      ],
+      "awaiting_signoff": [],
+      "in_progress": [
+        {
+          "badge": "Archery",
+          "mbc": "",
+          "remaining": "5, (1 of 5A, 5B), A, ) (1 of 5A, 5B)",
+          "required": false
+        },
+        {
+          "badge": "Coin Collecting",
+          "mbc": "",
+          "remaining": "4, 4a, 4b, 4c, 4d, 4e, 4f",
+          "required": false
+        },
+        {
+          "badge": "Cooking",
+          "mbc": "Bryce Stonehocker",
+          "remaining": "6, 6a, 6b, 6c, 6d, 6e, 6f",
+          "required": true
+        },
+        {
+          "badge": "Fire Safety",
+          "mbc": "",
+          "remaining": "5, 5d, 5e, 5f, 5g, 5h, 5i, 8, 8a, 8b, 8c, 8d, 8e, 8f, 8g, 8h, 9, 9b",
+          "required": false
+        },
+        {
+          "badge": "Fishing",
+          "mbc": "",
+          "remaining": "9, 10",
+          "required": false
+        },
+        {
+          "badge": "Forestry",
+          "mbc": "",
+          "remaining": "5, (1 of 5a, 5b, 5c), 7, 7a, 7b, 7c",
+          "required": false
+        },
+        {
+          "badge": "Oceanography",
+          "mbc": "",
+          "remaining": "7, (1 of 7a, 7b, 7c, 7d, 7e, 7f), 8, (1 of 8a, 8b, 8c)",
+          "required": false
+        },
+        {
+          "badge": "Space Exploration",
+          "mbc": "Shad Plante",
+          "remaining": "2, 3, 3a, 3b, 3c, 3d, 3e, 3f, 3g, 3h, 3i, 5, (1 of 5b, 5c), 7, 7a, 7b, 7c, 7d",
+          "required": false
+        },
+        {
+          "badge": "Sustainability",
+          "mbc": "",
+          "remaining": "3, (1 of 3a, 3b, 3c), 7, (2 of 7a, 7b, 7c, 7d, 7e, 7f), 8, 8a, 8b, 8c, 9, 9",
+          "required": true
+        },
+        {
+          "badge": "Wood Carving",
+          "mbc": "",
+          "remaining": "5, 6, 7",
+          "required": false
+        }
+      ],
+      "elective_earned": [
+        {
+          "badge": "Programming",
+          "date": "06/21/2026"
+        },
+        {
+          "badge": "Photography",
+          "date": "06/18/2026"
+        },
+        {
+          "badge": "Signs, Signals, and Codes",
+          "date": "03/30/2026"
+        },
+        {
+          "badge": "Composite Materials",
+          "date": "12/08/2025"
+        },
+        {
+          "badge": "Game Design",
+          "date": "11/17/2025"
+        },
+        {
+          "badge": "Welding",
+          "date": "09/27/2025"
+        },
+        {
+          "badge": "Metalwork",
+          "date": "09/22/2025"
+        },
+        {
+          "badge": "Art",
+          "date": "06/20/2025"
+        },
+        {
+          "badge": "Rifle Shooting",
+          "date": "06/20/2025"
+        },
+        {
+          "badge": "Sculpture",
+          "date": "06/20/2025"
+        },
+        {
+          "badge": "Kayaking",
+          "date": "06/19/2025"
+        },
+        {
+          "badge": "Robotics",
+          "date": "06/19/2025"
+        },
+        {
+          "badge": "Snow Sports",
+          "date": "02/24/2025"
+        },
+        {
+          "badge": "Chess",
+          "date": "12/13/2024"
+        },
+        {
+          "badge": "Geology",
+          "date": "07/27/2024"
+        },
+        {
+          "badge": "Fingerprinting",
+          "date": "06/17/2024"
+        },
+        {
+          "badge": "Horsemanship",
+          "date": "05/13/2024"
         }
       ]
     },
@@ -6402,6 +7381,13 @@
       "required_group": null,
       "scouts": [
         {
+          "name": "Calliope Magouirk",
+          "troop": 1533,
+          "status": "earned",
+          "date": "05/01/2023",
+          "mbc": ""
+        },
+        {
           "name": "John Burwell",
           "troop": 533,
           "status": "earned",
@@ -6548,6 +7534,13 @@
       "required_group": null,
       "scouts": [
         {
+          "name": "Calliope Magouirk",
+          "troop": 1533,
+          "status": "earned",
+          "date": "06/07/2024",
+          "mbc": ""
+        },
+        {
           "name": "London Israelson",
           "troop": 533,
           "status": "earned",
@@ -6610,6 +7603,27 @@
       "category": "elective",
       "required_group": null,
       "scouts": [
+        {
+          "name": "Leah Burwell",
+          "troop": 1533,
+          "status": "progress",
+          "remaining": "5, (1 of 5A, 5B), A, ) (1 of 5A, 5B)",
+          "mbc": ""
+        },
+        {
+          "name": "Gwyneth Hamker",
+          "troop": 1533,
+          "status": "progress",
+          "remaining": "5, (1 of 5A, 5B), A, ) (1 of 5A, 5B)",
+          "mbc": ""
+        },
+        {
+          "name": "Addie Hynek",
+          "troop": 1533,
+          "status": "progress",
+          "remaining": "5, (1 of 5A, 5B)",
+          "mbc": ""
+        },
         {
           "name": "John Burwell",
           "troop": 533,
@@ -6757,6 +7771,27 @@
       "required_group": null,
       "scouts": [
         {
+          "name": "Leah Burwell",
+          "troop": 1533,
+          "status": "earned",
+          "date": "06/20/2025",
+          "mbc": ""
+        },
+        {
+          "name": "Gwyneth Hamker",
+          "troop": 1533,
+          "status": "earned",
+          "date": "06/19/2025",
+          "mbc": ""
+        },
+        {
+          "name": "Addie Hynek",
+          "troop": 1533,
+          "status": "earned",
+          "date": "06/18/2026",
+          "mbc": ""
+        },
+        {
           "name": "Mason Burdette",
           "troop": 533,
           "status": "earned",
@@ -6840,6 +7875,13 @@
       "required_group": null,
       "scouts": [
         {
+          "name": "Gwyneth Hamker",
+          "troop": 1533,
+          "status": "earned",
+          "date": "06/18/2026",
+          "mbc": ""
+        },
+        {
           "name": "Mason Burdette",
           "troop": 533,
           "status": "earned",
@@ -6894,6 +7936,20 @@
       "category": "elective",
       "required_group": null,
       "scouts": [
+        {
+          "name": "Addie Hynek",
+          "troop": 1533,
+          "status": "earned",
+          "date": "10/14/2024",
+          "mbc": ""
+        },
+        {
+          "name": "Calliope Magouirk",
+          "troop": 1533,
+          "status": "earned",
+          "date": "10/14/2024",
+          "mbc": ""
+        },
         {
           "name": "Mason Burdette",
           "troop": 533,
@@ -7104,6 +8160,13 @@
       "required_group": null,
       "scouts": [
         {
+          "name": "Calliope Magouirk",
+          "troop": 1533,
+          "status": "earned",
+          "date": "08/09/2025",
+          "mbc": ""
+        },
+        {
           "name": "John Burwell",
           "troop": 533,
           "status": "earned",
@@ -7208,6 +8271,27 @@
       "category": "elective",
       "required_group": null,
       "scouts": [
+        {
+          "name": "Gwyneth Hamker",
+          "troop": 1533,
+          "status": "earned",
+          "date": "07/27/2024",
+          "mbc": ""
+        },
+        {
+          "name": "Addie Hynek",
+          "troop": 1533,
+          "status": "progress",
+          "remaining": "1, 1a, 1c, 2, 2, 3, 3a, 4, 4a, 5, 5b, 5c, 6, 6, 7, 7a, 7b, 7c, 7d, 8, 8a, 8b, 8c, 8d, 8e, 8f, 9, 9a, 9c, 9d, 9e, 9f, 9g, 9h",
+          "mbc": ""
+        },
+        {
+          "name": "Calliope Magouirk",
+          "troop": 1533,
+          "status": "earned",
+          "date": "06/16/2023",
+          "mbc": ""
+        },
         {
           "name": "Oliver Bailey-Burt",
           "troop": 533,
@@ -7334,6 +8418,20 @@
       "category": "elective",
       "required_group": null,
       "scouts": [
+        {
+          "name": "Leah Burwell",
+          "troop": 1533,
+          "status": "earned",
+          "date": "12/13/2024",
+          "mbc": ""
+        },
+        {
+          "name": "Gwyneth Hamker",
+          "troop": 1533,
+          "status": "earned",
+          "date": "12/13/2024",
+          "mbc": ""
+        },
         {
           "name": "Mason Burdette",
           "troop": 533,
@@ -7538,6 +8636,13 @@
       "required_group": null,
       "scouts": [
         {
+          "name": "Calliope Magouirk",
+          "troop": 1533,
+          "status": "earned",
+          "date": "06/18/2026",
+          "mbc": ""
+        },
+        {
           "name": "Ari Hellon",
           "troop": 533,
           "status": "earned",
@@ -7593,6 +8698,13 @@
       "category": "required_fixed",
       "required_group": null,
       "scouts": [
+        {
+          "name": "Calliope Magouirk",
+          "troop": 1533,
+          "status": "earned",
+          "date": "06/18/2026",
+          "mbc": ""
+        },
         {
           "name": "John Burwell",
           "troop": 533,
@@ -7719,6 +8831,27 @@
       "category": "elective",
       "required_group": null,
       "scouts": [
+        {
+          "name": "Leah Burwell",
+          "troop": 1533,
+          "status": "progress",
+          "remaining": "4, 4a, 4b, 4c, 4d, 4e, 4f",
+          "mbc": ""
+        },
+        {
+          "name": "Gwyneth Hamker",
+          "troop": 1533,
+          "status": "earned",
+          "date": "07/08/2024",
+          "mbc": ""
+        },
+        {
+          "name": "Calliope Magouirk",
+          "troop": 1533,
+          "status": "progress",
+          "remaining": "4, 4a, 4b, 4c, 4d, 4e, 4f",
+          "mbc": ""
+        },
         {
           "name": "Mason Burdette",
           "troop": 533,
@@ -7860,6 +8993,20 @@
       "required_group": null,
       "scouts": [
         {
+          "name": "Addie Hynek",
+          "troop": 1533,
+          "status": "earned",
+          "date": "06/18/2026",
+          "mbc": ""
+        },
+        {
+          "name": "Calliope Magouirk",
+          "troop": 1533,
+          "status": "earned",
+          "date": "06/18/2026",
+          "mbc": ""
+        },
+        {
           "name": "Mason Burdette",
           "troop": 533,
           "status": "progress",
@@ -7935,6 +9082,34 @@
       "category": "elective",
       "required_group": null,
       "scouts": [
+        {
+          "name": "Leah Burwell",
+          "troop": 1533,
+          "status": "earned",
+          "date": "12/08/2025",
+          "mbc": ""
+        },
+        {
+          "name": "Gwyneth Hamker",
+          "troop": 1533,
+          "status": "earned",
+          "date": "12/08/2025",
+          "mbc": ""
+        },
+        {
+          "name": "Addie Hynek",
+          "troop": 1533,
+          "status": "earned",
+          "date": "12/08/2025",
+          "mbc": ""
+        },
+        {
+          "name": "Calliope Magouirk",
+          "troop": 1533,
+          "status": "earned",
+          "date": "12/08/2025",
+          "mbc": ""
+        },
         {
           "name": "Mason Burdette",
           "troop": 533,
@@ -8082,6 +9257,27 @@
       "category": "required_fixed",
       "required_group": null,
       "scouts": [
+        {
+          "name": "Leah Burwell",
+          "troop": 1533,
+          "status": "progress",
+          "remaining": "6, 6a, 6b, 6c, 6d, 6e, 6f",
+          "mbc": "Bryce Stonehocker"
+        },
+        {
+          "name": "Gwyneth Hamker",
+          "troop": 1533,
+          "status": "progress",
+          "remaining": "6, 6a, 6b, 6c, 6d, 6e, 6f",
+          "mbc": "Bryce Stonehocker"
+        },
+        {
+          "name": "Calliope Magouirk",
+          "troop": 1533,
+          "status": "earned",
+          "date": "09/09/2024",
+          "mbc": ""
+        },
         {
           "name": "Mason Burdette",
           "troop": 533,
@@ -8408,6 +9604,13 @@
       "required_group": "Safety (choose 1)",
       "scouts": [
         {
+          "name": "Gwyneth Hamker",
+          "troop": 1533,
+          "status": "progress",
+          "remaining": "1, 3, 3a, 3c, 4, (1 of 4a, 4b), 8, 8b, 9*, 9b, 9c, 9d, 10, (1 of 10, 10a, 10b, 10c)",
+          "mbc": ""
+        },
+        {
           "name": "Oliver Bailey-Burt",
           "troop": 533,
           "status": "earned",
@@ -8645,6 +9848,13 @@
       "required_group": "Environment (choose 1)",
       "scouts": [
         {
+          "name": "Calliope Magouirk",
+          "troop": 1533,
+          "status": "earned",
+          "date": "06/19/2026",
+          "mbc": ""
+        },
+        {
           "name": "Taylor Campbell",
           "troop": 533,
           "status": "progress",
@@ -8805,6 +10015,27 @@
       "required_group": null,
       "scouts": [
         {
+          "name": "Leah Burwell",
+          "troop": 1533,
+          "status": "earned",
+          "date": "06/17/2024",
+          "mbc": ""
+        },
+        {
+          "name": "Gwyneth Hamker",
+          "troop": 1533,
+          "status": "earned",
+          "date": "06/17/2024",
+          "mbc": ""
+        },
+        {
+          "name": "Calliope Magouirk",
+          "troop": 1533,
+          "status": "earned",
+          "date": "07/01/2024",
+          "mbc": ""
+        },
+        {
           "name": "Mason Burdette",
           "troop": 533,
           "status": "earned",
@@ -8903,6 +10134,13 @@
       "required_group": null,
       "scouts": [
         {
+          "name": "Leah Burwell",
+          "troop": 1533,
+          "status": "progress",
+          "remaining": "5, 5d, 5e, 5f, 5g, 5h, 5i, 8, 8a, 8b, 8c, 8d, 8e, 8f, 8g, 8h, 9, 9b",
+          "mbc": ""
+        },
+        {
           "name": "John Burwell",
           "troop": 533,
           "status": "earned",
@@ -8944,6 +10182,27 @@
       "category": "required_fixed",
       "required_group": null,
       "scouts": [
+        {
+          "name": "Leah Burwell",
+          "troop": 1533,
+          "status": "earned",
+          "date": "07/27/2024",
+          "mbc": ""
+        },
+        {
+          "name": "Gwyneth Hamker",
+          "troop": 1533,
+          "status": "earned",
+          "date": "07/27/2024",
+          "mbc": ""
+        },
+        {
+          "name": "Calliope Magouirk",
+          "troop": 1533,
+          "status": "earned",
+          "date": "06/07/2024",
+          "mbc": ""
+        },
         {
           "name": "Oliver Bailey-Burt",
           "troop": 533,
@@ -9083,6 +10342,13 @@
       "category": "elective",
       "required_group": null,
       "scouts": [
+        {
+          "name": "Leah Burwell",
+          "troop": 1533,
+          "status": "progress",
+          "remaining": "9, 10",
+          "mbc": ""
+        },
         {
           "name": "Oliver Bailey-Burt",
           "troop": 533,
@@ -9238,6 +10504,20 @@
       "required_group": null,
       "scouts": [
         {
+          "name": "Leah Burwell",
+          "troop": 1533,
+          "status": "progress",
+          "remaining": "5, (1 of 5a, 5b, 5c), 7, 7a, 7b, 7c",
+          "mbc": ""
+        },
+        {
+          "name": "Calliope Magouirk",
+          "troop": 1533,
+          "status": "earned",
+          "date": "07/27/2024",
+          "mbc": ""
+        },
+        {
           "name": "Mason Burdette",
           "troop": 533,
           "status": "earned",
@@ -9293,6 +10573,34 @@
       "category": "elective",
       "required_group": null,
       "scouts": [
+        {
+          "name": "Leah Burwell",
+          "troop": 1533,
+          "status": "earned",
+          "date": "11/17/2025",
+          "mbc": ""
+        },
+        {
+          "name": "Gwyneth Hamker",
+          "troop": 1533,
+          "status": "earned",
+          "date": "11/17/2025",
+          "mbc": ""
+        },
+        {
+          "name": "Addie Hynek",
+          "troop": 1533,
+          "status": "earned",
+          "date": "11/17/2025",
+          "mbc": ""
+        },
+        {
+          "name": "Calliope Magouirk",
+          "troop": 1533,
+          "status": "earned",
+          "date": "11/17/2025",
+          "mbc": ""
+        },
         {
           "name": "Mason Burdette",
           "troop": 533,
@@ -9447,6 +10755,13 @@
       "required_group": null,
       "scouts": [
         {
+          "name": "Calliope Magouirk",
+          "troop": 1533,
+          "status": "progress",
+          "remaining": "8, (1 of 8a, 8b, 8c, 8d), 9",
+          "mbc": ""
+        },
+        {
           "name": "Mason Burdette",
           "troop": 533,
           "status": "progress",
@@ -9587,6 +10902,20 @@
       "required_group": null,
       "scouts": [
         {
+          "name": "Leah Burwell",
+          "troop": 1533,
+          "status": "earned",
+          "date": "07/27/2024",
+          "mbc": ""
+        },
+        {
+          "name": "Calliope Magouirk",
+          "troop": 1533,
+          "status": "earned",
+          "date": "07/27/2024",
+          "mbc": ""
+        },
+        {
           "name": "Ryan Fogle",
           "troop": 533,
           "status": "earned",
@@ -9668,6 +10997,20 @@
       "category": "elective",
       "required_group": null,
       "scouts": [
+        {
+          "name": "Leah Burwell",
+          "troop": 1533,
+          "status": "earned",
+          "date": "05/13/2024",
+          "mbc": ""
+        },
+        {
+          "name": "Gwyneth Hamker",
+          "troop": 1533,
+          "status": "earned",
+          "date": "05/13/2024",
+          "mbc": ""
+        },
         {
           "name": "Mason Burdette",
           "troop": 533,
@@ -9787,6 +11130,34 @@
       "category": "elective",
       "required_group": null,
       "scouts": [
+        {
+          "name": "Leah Burwell",
+          "troop": 1533,
+          "status": "earned",
+          "date": "06/19/2025",
+          "mbc": ""
+        },
+        {
+          "name": "Gwyneth Hamker",
+          "troop": 1533,
+          "status": "earned",
+          "date": "07/27/2024",
+          "mbc": ""
+        },
+        {
+          "name": "Addie Hynek",
+          "troop": 1533,
+          "status": "progress",
+          "remaining": "6, 6d, 8, 8c",
+          "mbc": ""
+        },
+        {
+          "name": "Calliope Magouirk",
+          "troop": 1533,
+          "status": "earned",
+          "date": "08/15/2023",
+          "mbc": ""
+        },
         {
           "name": "John Burwell",
           "troop": 533,
@@ -10081,6 +11452,34 @@
       "required_group": null,
       "scouts": [
         {
+          "name": "Leah Burwell",
+          "troop": 1533,
+          "status": "earned",
+          "date": "09/22/2025",
+          "mbc": ""
+        },
+        {
+          "name": "Gwyneth Hamker",
+          "troop": 1533,
+          "status": "earned",
+          "date": "09/22/2025",
+          "mbc": ""
+        },
+        {
+          "name": "Addie Hynek",
+          "troop": 1533,
+          "status": "earned",
+          "date": "09/22/2025",
+          "mbc": ""
+        },
+        {
+          "name": "Kyrie Brockmeyer",
+          "troop": 1533,
+          "status": "earned",
+          "date": "09/22/2025",
+          "mbc": ""
+        },
+        {
           "name": "Mason Burdette",
           "troop": 533,
           "status": "earned",
@@ -10330,6 +11729,20 @@
       "required_group": null,
       "scouts": [
         {
+          "name": "Leah Burwell",
+          "troop": 1533,
+          "status": "progress",
+          "remaining": "7, (1 of 7a, 7b, 7c, 7d, 7e, 7f), 8, (1 of 8a, 8b, 8c)",
+          "mbc": ""
+        },
+        {
+          "name": "Calliope Magouirk",
+          "troop": 1533,
+          "status": "progress",
+          "remaining": "8, (1 of 8a, 8b, 8c)",
+          "mbc": ""
+        },
+        {
           "name": "Mason Burdette",
           "troop": 533,
           "status": "earned",
@@ -10455,6 +11868,13 @@
       "category": "required_fixed",
       "required_group": null,
       "scouts": [
+        {
+          "name": "Calliope Magouirk",
+          "troop": 1533,
+          "status": "earned",
+          "date": "04/05/2024",
+          "mbc": ""
+        },
         {
           "name": "John Burwell",
           "troop": 533,
@@ -10596,6 +12016,13 @@
       "required_group": null,
       "scouts": [
         {
+          "name": "Calliope Magouirk",
+          "troop": 1533,
+          "status": "progress",
+          "remaining": "1, 2, 3",
+          "mbc": ""
+        },
+        {
           "name": "Taylor Campbell",
           "troop": 533,
           "status": "progress",
@@ -10651,6 +12078,27 @@
       "category": "elective",
       "required_group": null,
       "scouts": [
+        {
+          "name": "Leah Burwell",
+          "troop": 1533,
+          "status": "earned",
+          "date": "06/18/2026",
+          "mbc": ""
+        },
+        {
+          "name": "Gwyneth Hamker",
+          "troop": 1533,
+          "status": "earned",
+          "date": "06/18/2026",
+          "mbc": ""
+        },
+        {
+          "name": "Calliope Magouirk",
+          "troop": 1533,
+          "status": "earned",
+          "date": "06/21/2024",
+          "mbc": ""
+        },
         {
           "name": "John Burwell",
           "troop": 533,
@@ -10743,6 +12191,13 @@
       "required_group": null,
       "scouts": [
         {
+          "name": "Gwyneth Hamker",
+          "troop": 1533,
+          "status": "progress",
+          "remaining": "3, 3a, 3b, 3c, 7, 9",
+          "mbc": ""
+        },
+        {
           "name": "Ryan Fogle",
           "troop": 533,
           "status": "earned",
@@ -10824,6 +12279,34 @@
       "category": "elective",
       "required_group": null,
       "scouts": [
+        {
+          "name": "Leah Burwell",
+          "troop": 1533,
+          "status": "earned",
+          "date": "06/21/2026",
+          "mbc": ""
+        },
+        {
+          "name": "Gwyneth Hamker",
+          "troop": 1533,
+          "status": "earned",
+          "date": "06/21/2026",
+          "mbc": ""
+        },
+        {
+          "name": "Addie Hynek",
+          "troop": 1533,
+          "status": "earned",
+          "date": "06/21/2026",
+          "mbc": ""
+        },
+        {
+          "name": "Calliope Magouirk",
+          "troop": 1533,
+          "status": "earned",
+          "date": "06/21/2026",
+          "mbc": ""
+        },
         {
           "name": "Mason Burdette",
           "troop": 533,
@@ -11111,6 +12594,13 @@
       "required_group": null,
       "scouts": [
         {
+          "name": "Leah Burwell",
+          "troop": 1533,
+          "status": "earned",
+          "date": "06/20/2025",
+          "mbc": ""
+        },
+        {
           "name": "John Burwell",
           "troop": 533,
           "status": "earned",
@@ -11230,6 +12720,13 @@
       "required_group": null,
       "scouts": [
         {
+          "name": "Leah Burwell",
+          "troop": 1533,
+          "status": "earned",
+          "date": "06/19/2025",
+          "mbc": ""
+        },
+        {
           "name": "Mason Burdette",
           "troop": 533,
           "status": "earned",
@@ -11284,7 +12781,15 @@
       "name": "Rowing",
       "category": "elective",
       "required_group": null,
-      "scouts": []
+      "scouts": [
+        {
+          "name": "Calliope Magouirk",
+          "troop": 1533,
+          "status": "progress",
+          "remaining": "7",
+          "mbc": ""
+        }
+      ]
     },
     {
       "name": "Safety",
@@ -11424,6 +12929,27 @@
       "required_group": null,
       "scouts": [
         {
+          "name": "Leah Burwell",
+          "troop": 1533,
+          "status": "earned",
+          "date": "06/20/2025",
+          "mbc": ""
+        },
+        {
+          "name": "Gwyneth Hamker",
+          "troop": 1533,
+          "status": "earned",
+          "date": "06/19/2025",
+          "mbc": ""
+        },
+        {
+          "name": "Addie Hynek",
+          "troop": 1533,
+          "status": "earned",
+          "date": "06/17/2026",
+          "mbc": ""
+        },
+        {
           "name": "Thatcher Hamker",
           "troop": 533,
           "status": "earned",
@@ -11543,6 +13069,13 @@
       "required_group": null,
       "scouts": [
         {
+          "name": "Leah Burwell",
+          "troop": 1533,
+          "status": "earned",
+          "date": "03/30/2026",
+          "mbc": ""
+        },
+        {
           "name": "Mason Burdette",
           "troop": 533,
           "status": "progress",
@@ -11620,6 +13153,13 @@
       "required_group": null,
       "scouts": [
         {
+          "name": "Gwyneth Hamker",
+          "troop": 1533,
+          "status": "earned",
+          "date": "06/26/2025",
+          "mbc": ""
+        },
+        {
           "name": "John Burwell",
           "troop": 533,
           "status": "earned",
@@ -11647,6 +13187,27 @@
       "category": "elective",
       "required_group": null,
       "scouts": [
+        {
+          "name": "Leah Burwell",
+          "troop": 1533,
+          "status": "earned",
+          "date": "02/24/2025",
+          "mbc": ""
+        },
+        {
+          "name": "Gwyneth Hamker",
+          "troop": 1533,
+          "status": "earned",
+          "date": "02/24/2025",
+          "mbc": ""
+        },
+        {
+          "name": "Calliope Magouirk",
+          "troop": 1533,
+          "status": "earned",
+          "date": "02/24/2025",
+          "mbc": ""
+        },
         {
           "name": "Ryan Fogle",
           "troop": 533,
@@ -11697,6 +13258,13 @@
       "required_group": null,
       "scouts": [
         {
+          "name": "Calliope Magouirk",
+          "troop": 1533,
+          "status": "earned",
+          "date": "06/19/2025",
+          "mbc": ""
+        },
+        {
           "name": "John Burwell",
           "troop": 533,
           "status": "earned",
@@ -11710,6 +13278,27 @@
       "category": "elective",
       "required_group": null,
       "scouts": [
+        {
+          "name": "Leah Burwell",
+          "troop": 1533,
+          "status": "progress",
+          "remaining": "2, 3, 3a, 3b, 3c, 3d, 3e, 3f, 3g, 3h, 3i, 5, (1 of 5b, 5c), 7, 7a, 7b, 7c, 7d",
+          "mbc": "Shad Plante"
+        },
+        {
+          "name": "Gwyneth Hamker",
+          "troop": 1533,
+          "status": "progress",
+          "remaining": "2, 5, (1 of 5b, 5c), 7, 7a, 7b, 7c, 7d",
+          "mbc": "Shad Plante"
+        },
+        {
+          "name": "Calliope Magouirk",
+          "troop": 1533,
+          "status": "progress",
+          "remaining": "2, 3, 3a, 3b, 3c, 3d, 3e, 3f, 3g, 3h, 3i, 4, 4b, 4d, 5, (1 of 5b, 5c), 6, (1 of 6a, 6b), 7, 7a, 7b, 7c, 7d",
+          "mbc": "Shad Plante"
+        },
         {
           "name": "Mason Burdette",
           "troop": 533,
@@ -11889,6 +13478,34 @@
       "category": "alt_environment",
       "required_group": "Environment (choose 1)",
       "scouts": [
+        {
+          "name": "Leah Burwell",
+          "troop": 1533,
+          "status": "progress",
+          "remaining": "3, (1 of 3a, 3b, 3c), 7, (2 of 7a, 7b, 7c, 7d, 7e, 7f), 8, 8a, 8b, 8c, 9, 9",
+          "mbc": ""
+        },
+        {
+          "name": "Gwyneth Hamker",
+          "troop": 1533,
+          "status": "earned",
+          "date": "06/22/2026",
+          "mbc": ""
+        },
+        {
+          "name": "Addie Hynek",
+          "troop": 1533,
+          "status": "earned",
+          "date": "06/22/2026",
+          "mbc": ""
+        },
+        {
+          "name": "Calliope Magouirk",
+          "troop": 1533,
+          "status": "progress",
+          "remaining": "2, 2Energy, 2Stuff, 5, 5a, 5b",
+          "mbc": ""
+        },
         {
           "name": "Oliver Bailey-Burt",
           "troop": 533,
@@ -12086,6 +13703,13 @@
       "required_group": "Fitness (choose 1)",
       "scouts": [
         {
+          "name": "Calliope Magouirk",
+          "troop": 1533,
+          "status": "earned",
+          "date": "06/21/2024",
+          "mbc": ""
+        },
+        {
           "name": "Robert Collins",
           "troop": 533,
           "status": "earned",
@@ -12202,7 +13826,15 @@
       "name": "Theater",
       "category": "elective",
       "required_group": null,
-      "scouts": []
+      "scouts": [
+        {
+          "name": "Addie Hynek",
+          "troop": 1533,
+          "status": "progress",
+          "remaining": "2",
+          "mbc": ""
+        }
+      ]
     },
     {
       "name": "Traffic Safety",
@@ -12227,6 +13859,13 @@
       "category": "elective",
       "required_group": null,
       "scouts": [
+        {
+          "name": "Calliope Magouirk",
+          "troop": 1533,
+          "status": "progress",
+          "remaining": "2, 2(, 5, (1 of 5()",
+          "mbc": ""
+        },
         {
           "name": "Ari Hellon",
           "troop": 533,
@@ -12255,6 +13894,13 @@
       "category": "elective",
       "required_group": null,
       "scouts": [
+        {
+          "name": "Calliope Magouirk",
+          "troop": 1533,
+          "status": "earned",
+          "date": "06/21/2024",
+          "mbc": ""
+        },
         {
           "name": "Mason Burdette",
           "troop": 533,
@@ -12318,6 +13964,27 @@
       "category": "elective",
       "required_group": null,
       "scouts": [
+        {
+          "name": "Leah Burwell",
+          "troop": 1533,
+          "status": "earned",
+          "date": "09/27/2025",
+          "mbc": ""
+        },
+        {
+          "name": "Gwyneth Hamker",
+          "troop": 1533,
+          "status": "earned",
+          "date": "09/27/2025",
+          "mbc": ""
+        },
+        {
+          "name": "Calliope Magouirk",
+          "troop": 1533,
+          "status": "earned",
+          "date": "09/27/2025",
+          "mbc": ""
+        },
         {
           "name": "Mason Burdette",
           "troop": 533,
@@ -12473,6 +14140,13 @@
       "required_group": null,
       "scouts": [
         {
+          "name": "Calliope Magouirk",
+          "troop": 1533,
+          "status": "earned",
+          "date": "08/26/2023",
+          "mbc": ""
+        },
+        {
           "name": "Ryan Fogle",
           "troop": 533,
           "status": "earned",
@@ -12507,6 +14181,13 @@
       "category": "elective",
       "required_group": null,
       "scouts": [
+        {
+          "name": "Calliope Magouirk",
+          "troop": 1533,
+          "status": "earned",
+          "date": "07/27/2024",
+          "mbc": ""
+        },
         {
           "name": "John Burwell",
           "troop": 533,
@@ -12563,6 +14244,27 @@
       "category": "elective",
       "required_group": null,
       "scouts": [
+        {
+          "name": "Leah Burwell",
+          "troop": 1533,
+          "status": "progress",
+          "remaining": "5, 6, 7",
+          "mbc": ""
+        },
+        {
+          "name": "Gwyneth Hamker",
+          "troop": 1533,
+          "status": "progress",
+          "remaining": "5, 6, 7",
+          "mbc": ""
+        },
+        {
+          "name": "Calliope Magouirk",
+          "troop": 1533,
+          "status": "earned",
+          "date": "06/07/2024",
+          "mbc": ""
+        },
         {
           "name": "Mason Burdette",
           "troop": 533,
