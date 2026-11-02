@@ -1,0 +1,674 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Merit Badge Tracker — Admin</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&display=swap');
+
+:root{
+  --bg:#EFEFEF; --surface:#FFFFFF; --surface-2:#F5F5F5; --border:#E1E1E1;
+  --ink:#2B2B2B; --ink-2:#666666; --ink-3:#9A9A9A;
+  --red:#C8102E; --red-dark:#A50D26; --red-ink:#FFFFFF;
+  --blue:#0B5FA5; --blue-soft:#EAF2FA; --blue-soft-border:#C6DEF2;
+  --gold-soft:#F6E0AE; --gold-soft-border:#E0BE6E; --gold-ink:#7A5A10;
+  --green:#1D7A3D; --green-soft:#E3F3E7; --green-soft-border:#B6DEC2;
+  --alert-soft:#FBE1DE; --alert-soft-border:#E9B3AC; --alert-ink:#A5301B;
+  --shadow: 0 1px 2px rgba(0,0,0,.05), 0 4px 14px -8px rgba(0,0,0,.18);
+  --focus:#0B5FA5;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#17181A; --surface:#202225; --surface-2:#26282B; --border:#36383B;
+    --ink:#ECECEC; --ink-2:#AEAEAE; --ink-3:#7C7C7C;
+    --red:#DC2F4E; --red-dark:#C8102E; --red-ink:#FFFFFF;
+    --blue:#5FADEB; --blue-soft:#1C2C3B; --blue-soft-border:#2C4A64;
+    --gold-soft:#4A3B14; --gold-soft-border:#6B5620; --gold-ink:#F0D48A;
+    --green:#4CBB6E; --green-soft:#173A24; --green-soft-border:#2C5C3C;
+    --alert-soft:#3A2320; --alert-soft-border:#6B3A32; --alert-ink:#F0A090;
+    --shadow: 0 1px 2px rgba(0,0,0,.35), 0 10px 26px -12px rgba(0,0,0,.55);
+    --focus:#5FADEB;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#17181A; --surface:#202225; --surface-2:#26282B; --border:#36383B;
+  --ink:#ECECEC; --ink-2:#AEAEAE; --ink-3:#7C7C7C;
+  --red:#DC2F4E; --red-dark:#C8102E; --red-ink:#FFFFFF;
+  --blue:#5FADEB; --blue-soft:#1C2C3B; --blue-soft-border:#2C4A64;
+  --gold-soft:#4A3B14; --gold-soft-border:#6B5620; --gold-ink:#F0D48A;
+  --green:#4CBB6E; --green-soft:#173A24; --green-soft-border:#2C5C3C;
+  --alert-soft:#3A2320; --alert-soft-border:#6B3A32; --alert-ink:#F0A090;
+  --shadow: 0 1px 2px rgba(0,0,0,.35), 0 10px 26px -12px rgba(0,0,0,.55);
+  --focus:#5FADEB;
+}
+
+*{ box-sizing:border-box; }
+html{ font-size:17px; }
+body{
+  margin:0; background:var(--bg); color:var(--ink);
+  font-family:'IBM Plex Sans', Arial, system-ui, sans-serif; line-height:1.5;
+  -webkit-font-smoothing:antialiased;
+}
+.wrap{ max-width:820px; margin:0 auto; padding:0 24px 80px; }
+h1,h2,h3{ font-family:inherit; margin:0; }
+a{ color:var(--blue); }
+button, select, input{ font-family:inherit; }
+:focus-visible{ outline:2px solid var(--focus); outline-offset:2px; }
+
+header.top{ background:var(--red); color:var(--red-ink); padding:22px 0; margin-bottom:28px; }
+header.top .wrap{ display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:10px; }
+header.top h1{ font-size:1.35rem; font-weight:700; }
+header.top a{ color:var(--red-ink); opacity:.9; font-size:.85rem; text-decoration:underline; }
+
+.card{ background:var(--surface); border:1px solid var(--border); border-radius:12px; box-shadow:var(--shadow); padding:20px 22px; margin-bottom:20px; }
+.card h2{ font-size:1.05rem; margin-bottom:4px; }
+.card .sub{ font-size:.85rem; color:var(--ink-2); margin-bottom:16px; }
+.card.disabled{ opacity:.5; pointer-events:none; }
+.step-badge{ display:inline-flex; align-items:center; justify-content:center; width:22px; height:22px; border-radius:50%; background:var(--blue); color:#fff; font-size:.75rem; font-weight:700; margin-right:8px; flex:none; }
+.card h2{ display:flex; align-items:center; }
+.step-badge.done{ background:var(--green); }
+
+label{ display:block; font-size:.82rem; font-weight:600; color:var(--ink-2); margin:12px 0 5px; }
+label:first-child{ margin-top:0; }
+input[type="text"], input[type="password"]{
+  width:100%; padding:9px 12px; border-radius:8px; border:1px solid var(--border);
+  background:var(--surface); color:var(--ink); font-size:.92rem;
+}
+.row2{ display:grid; grid-template-columns:1fr 1fr; gap:12px; }
+.row3{ display:grid; grid-template-columns:2fr 1fr 1fr; gap:12px; }
+@media (max-width:560px){ .row2,.row3{ grid-template-columns:1fr; } }
+
+.hint{ font-size:.78rem; color:var(--ink-3); margin-top:5px; }
+.btn{
+  display:inline-flex; align-items:center; gap:6px; border-radius:999px; border:1.5px solid var(--blue);
+  background:var(--surface); color:var(--blue); font-weight:600; font-size:.88rem; padding:9px 18px;
+  cursor:pointer; margin-top:14px;
+}
+.btn.primary{ background:var(--blue); color:#fff; }
+.btn.primary:disabled{ opacity:.45; cursor:not-allowed; }
+.btn:disabled{ opacity:.45; cursor:not-allowed; }
+.btn.danger{ border-color:var(--alert-ink); color:var(--alert-ink); }
+
+.file-drop{
+  border:2px dashed var(--border); border-radius:10px; padding:24px; text-align:center;
+  color:var(--ink-2); font-size:.88rem; cursor:pointer; background:var(--surface-2);
+}
+.file-drop.over{ border-color:var(--blue); background:var(--blue-soft); }
+.file-list{ margin-top:12px; display:flex; flex-direction:column; gap:6px; }
+.file-item{ display:flex; justify-content:space-between; font-size:.85rem; background:var(--surface-2); border:1px solid var(--border); border-radius:8px; padding:7px 11px; }
+.file-item .rm{ color:var(--alert-ink); cursor:pointer; font-weight:600; }
+
+.status{ font-size:.85rem; padding:10px 14px; border-radius:8px; margin-top:12px; }
+.status.ok{ background:var(--green-soft); border:1px solid var(--green-soft-border); color:var(--green); }
+.status.err{ background:var(--alert-soft); border:1px solid var(--alert-soft-border); color:var(--alert-ink); }
+.status.info{ background:var(--blue-soft); border:1px solid var(--blue-soft-border); color:var(--blue); }
+
+.stat-row{ display:grid; grid-template-columns:repeat(4,1fr); gap:10px; margin:14px 0; }
+@media (max-width:560px){ .stat-row{ grid-template-columns:repeat(2,1fr); } }
+.stat{ background:var(--surface-2); border:1px solid var(--border); border-radius:10px; padding:12px 14px; }
+.stat .n{ font-size:1.3rem; font-weight:700; }
+.stat .l{ font-size:.72rem; color:var(--ink-2); margin-top:2px; }
+
+.diff-list{ display:flex; flex-direction:column; gap:6px; margin-top:10px; max-height:280px; overflow-y:auto; }
+.diff-row{ display:flex; justify-content:space-between; gap:10px; font-size:.82rem; padding:7px 11px; border-radius:8px; background:var(--surface-2); border:1px solid var(--border); }
+.diff-row .tag{ font-size:.68rem; font-weight:700; padding:2px 8px; border-radius:999px; flex:none; }
+.tag.up{ background:var(--green-soft); color:var(--green); border:1px solid var(--green-soft-border); }
+.tag.new{ background:var(--blue-soft); color:var(--blue); border:1px solid var(--blue-soft-border); }
+.tag.gone{ background:var(--alert-soft); color:var(--alert-ink); border:1px solid var(--alert-soft-border); }
+.tag.eagle{ background:var(--gold-soft); color:var(--gold-ink); border:1px solid var(--gold-soft-border); }
+.tag.info{ background:var(--surface); color:var(--ink-2); border:1px solid var(--border); }
+.diff-controls{ display:flex; justify-content:space-between; gap:10px; flex-wrap:wrap; font-size:.8rem; color:var(--ink-2); margin-top:12px; }
+.diff-row{ align-items:center; cursor:pointer; justify-content:flex-start; }
+.diff-row input{ flex:none; width:18px; height:18px; accent-color:var(--blue); }
+.diff-row .who{ flex:none; min-width:150px; }
+.diff-row .who small{ color:var(--ink-3); font-weight:400; }
+.diff-row .tags{ display:flex; flex-wrap:wrap; gap:5px; margin-left:auto; justify-content:flex-end; }
+.diff-row.risky{ border-color:var(--alert-soft-border); background:var(--alert-soft); }
+.diff-row .tag{ font-weight:600; }
+.pick-list{ margin-top:10px; max-height:300px; overflow-y:auto; }
+.pick-group{ font-size:.72rem; font-weight:700; text-transform:uppercase; letter-spacing:.05em; color:var(--ink-2); margin:14px 0 6px; }
+.pick{ display:flex; align-items:center; gap:10px; padding:6px 8px; border-radius:8px; font-size:.88rem; font-weight:400; color:var(--ink); margin:0; cursor:pointer; }
+.pick:hover{ background:var(--surface-2); }
+.pick input{ width:18px; height:18px; accent-color:var(--alert-ink); flex:none; }
+.pick small{ margin-left:auto; color:var(--ink-3); }
+.removed-row{ cursor:default; }
+.removed-row small{ margin-left:auto; }
+.btn.mini{ margin-top:0; padding:4px 12px; font-size:.78rem; }
+#manageFilter{ width:100%; padding:9px 12px; border-radius:8px; border:1px solid var(--border); background:var(--surface); color:var(--ink); font-size:.92rem; }
+.empty-note{ font-size:.82rem; color:var(--ink-3); font-style:italic; }
+
+.token-row{ display:flex; gap:8px; align-items:flex-end; }
+.token-row input{ flex:1; }
+.small-link{ font-size:.8rem; }
+footer{ font-size:.78rem; color:var(--ink-3); text-align:center; margin-top:30px; }
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <h1>Merit Badge Tracker — Admin</h1>
+    <a href="../">&larr; Back to tracker</a>
+  </div>
+</header>
+
+<div class="wrap">
+
+  <div class="card">
+    <h2><span class="step-badge" id="stepBadge1">1</span>Connect to GitHub</h2>
+    <div class="sub">Each admin uses their own GitHub personal access token, scoped to just this repo. Nothing here is sent anywhere except GitHub's API — your token stays in this browser only.</div>
+
+    <div class="row3">
+      <div>
+        <label for="repoOwner">Repo owner / org</label>
+        <input type="text" id="repoOwner" placeholder="e.g. akon316">
+      </div>
+      <div>
+        <label for="repoName">Repo name</label>
+        <input type="text" id="repoName" placeholder="e.g. troop-mb-tracker">
+      </div>
+      <div>
+        <label for="repoBranch">Branch</label>
+        <input type="text" id="repoBranch" placeholder="main" value="main">
+      </div>
+    </div>
+    <label for="dataPath">Data file path</label>
+    <input type="text" id="dataPath" value="data/tracker-data.json">
+
+    <label for="ghToken">GitHub personal access token</label>
+    <div class="token-row">
+      <input type="password" id="ghToken" placeholder="github_pat_...">
+      <button class="btn" id="btnToggleToken" type="button">Show</button>
+    </div>
+    <div class="hint">
+      Need a token? On GitHub: Settings &rarr; Developer settings &rarr; Personal access tokens &rarr; Fine-grained tokens &rarr; Generate new token.
+      Set <b>Resource owner</b> to this repo's account, <b>Repository access</b> to only this repo, and under <b>Permissions</b> grant <b>Contents: Read and write</b>. That's the only permission it needs.
+    </div>
+
+    <button class="btn primary" id="btnConnect" type="button">Connect</button>
+    <button class="btn danger" id="btnForget" type="button" style="display:none;">Forget saved token</button>
+    <div id="connectStatus"></div>
+  </div>
+
+  <div class="card disabled" id="cardUpload">
+    <h2><span class="step-badge" id="stepBadge2">2</span>Upload Scoutbook export(s)</h2>
+    <div class="sub">Upload the "Merit Badge In-Progress Report" CSV export — from Scoutbook, export &rarr; Merit Badge In-Progress Report. Upload a whole troop, both troops, or even a single scout's report — only the scouts in the file(s) you upload are updated. Nothing is ever dropped: earned badges and scouts that are already published stay, even if a report leaves them out.</div>
+
+    <div class="file-drop" id="fileDrop">
+      Drop CSV files here, or click to choose
+      <input type="file" id="fileInput" accept=".csv" multiple style="display:none;">
+    </div>
+    <div class="file-list" id="fileList"></div>
+
+    <button class="btn primary" id="btnParse" type="button" disabled>Parse &amp; preview</button>
+    <div id="parseStatus"></div>
+  </div>
+
+  <div class="card disabled" id="cardReview">
+    <h2><span class="step-badge" id="stepBadge3">3</span>Review changes</h2>
+    <div class="sub">Compare against what's currently published before you publish the update.</div>
+
+    <div class="stat-row" id="reviewStats"></div>
+    <div id="reviewDiff"></div>
+
+    <button class="btn primary" id="btnPublish" type="button">Publish to GitHub</button>
+    <div id="publishStatus"></div>
+  </div>
+
+  <div class="card disabled" id="cardManage">
+    <h2>Remove scouts</h2>
+    <div class="sub">For a scout who left or aged out. Removing takes them off the published tracker and keeps future uploads from bringing them back. You can restore anyone later. (Uploads on their own never remove anyone.)</div>
+    <input type="text" id="manageFilter" placeholder="Search scouts by name">
+    <div class="pick-list" id="manageBody"><div class="empty-note">Connect above to load the published scouts.</div></div>
+    <button class="btn danger" id="btnRemoveSel" type="button" disabled>Remove selected&hellip;</button>
+    <div id="manageConfirm"></div>
+    <div id="manageStatus"></div>
+    <div id="removedBox"></div>
+  </div>
+
+</div>
+
+<footer>Merit Badge Tracker admin portal &middot; runs entirely in your browser, talks only to the GitHub API</footer>
+
+<script src="parser.js"></script>
+<script>
+(function(){
+  "use strict";
+
+  const LS_KEYS = { owner:'mbt_owner', repo:'mbt_repo', branch:'mbt_branch', path:'mbt_path', token:'mbt_token' };
+
+  const el = id => document.getElementById(id);
+  const ownerEl = el('repoOwner'), repoEl = el('repoName'), branchEl = el('repoBranch'),
+        pathEl = el('dataPath'), tokenEl = el('ghToken');
+
+  // restore saved connection info (not the token, unless previously saved) from localStorage
+  try {
+    if(localStorage.getItem(LS_KEYS.owner)) ownerEl.value = localStorage.getItem(LS_KEYS.owner);
+    if(localStorage.getItem(LS_KEYS.repo)) repoEl.value = localStorage.getItem(LS_KEYS.repo);
+    if(localStorage.getItem(LS_KEYS.branch)) branchEl.value = localStorage.getItem(LS_KEYS.branch);
+    if(localStorage.getItem(LS_KEYS.path)) pathEl.value = localStorage.getItem(LS_KEYS.path);
+    if(localStorage.getItem(LS_KEYS.token)){
+      tokenEl.value = localStorage.getItem(LS_KEYS.token);
+      el('btnForget').style.display = 'inline-flex';
+    }
+  } catch(e){ /* localStorage unavailable -- fine, just won't persist */ }
+
+  el('btnToggleToken').addEventListener('click', ()=>{
+    tokenEl.type = tokenEl.type === 'password' ? 'text' : 'password';
+    el('btnToggleToken').textContent = tokenEl.type === 'password' ? 'Show' : 'Hide';
+  });
+
+  el('btnForget').addEventListener('click', ()=>{
+    try {
+      Object.values(LS_KEYS).forEach(k=>localStorage.removeItem(k));
+    } catch(e){}
+    tokenEl.value = '';
+    el('btnForget').style.display = 'none';
+    setStatus('connectStatus', 'Saved token cleared from this browser.', 'info');
+  });
+
+  function setStatus(id, msg, kind){
+    const d = el(id);
+    d.innerHTML = msg ? `<div class="status ${kind}">${msg}</div>` : '';
+  }
+
+  function ghHeaders(token){
+    return {
+      'Authorization': 'Bearer ' + token,
+      'Accept': 'application/vnd.github+json',
+      'X-GitHub-Api-Version': '2022-11-28',
+    };
+  }
+
+  let connection = null; // { owner, repo, branch, path, token }
+
+  el('btnConnect').addEventListener('click', async ()=>{
+    const owner = ownerEl.value.trim();
+    const repo = repoEl.value.trim();
+    const branch = branchEl.value.trim() || 'main';
+    const path = pathEl.value.trim() || 'data/tracker-data.json';
+    const token = tokenEl.value.trim();
+
+    if(!owner || !repo || !token){
+      setStatus('connectStatus', 'Fill in the repo owner, repo name, and your token.', 'err');
+      return;
+    }
+
+    setStatus('connectStatus', 'Checking access&hellip;', 'info');
+    try {
+      const res = await fetch(`https://api.github.com/repos/${owner}/${repo}`, { headers: ghHeaders(token) });
+      if(res.status === 404){
+        setStatus('connectStatus', `Can't find ${owner}/${repo} with this token. Check the owner/repo name and that the token's repository access includes this repo.`, 'err');
+        return;
+      }
+      if(!res.ok){
+        setStatus('connectStatus', `GitHub rejected the token (HTTP ${res.status}). Double-check it hasn't expired and has Contents: Read and write.`, 'err');
+        return;
+      }
+      const repoInfo = await res.json();
+      const canPush = repoInfo.permissions && repoInfo.permissions.push;
+      if(!canPush){
+        setStatus('connectStatus', `Connected, but this token doesn't appear to have write access to ${owner}/${repo}. You'll be able to preview but publishing will fail -- check the token's Contents permission.`, 'err');
+      } else {
+        setStatus('connectStatus', `Connected to ${owner}/${repo} (branch: ${branch}) with write access.`, 'ok');
+      }
+
+      connection = { owner, repo, branch, path, token };
+      try {
+        localStorage.setItem(LS_KEYS.owner, owner);
+        localStorage.setItem(LS_KEYS.repo, repo);
+        localStorage.setItem(LS_KEYS.branch, branch);
+        localStorage.setItem(LS_KEYS.path, path);
+        localStorage.setItem(LS_KEYS.token, token);
+        el('btnForget').style.display = 'inline-flex';
+      } catch(e){}
+
+      el('stepBadge1').classList.add('done');
+      el('cardUpload').classList.remove('disabled');
+      el('cardManage').classList.remove('disabled');
+      refreshManage();
+    } catch(err){
+      setStatus('connectStatus', 'Network error reaching GitHub: ' + err.message, 'err');
+    }
+  });
+
+  // ---------- Step 2: upload & parse ----------
+  let uploadedFiles = []; // [{name, text}]
+
+  const fileDrop = el('fileDrop'), fileInput = el('fileInput');
+  fileDrop.addEventListener('click', ()=>fileInput.click());
+  fileDrop.addEventListener('dragover', e=>{ e.preventDefault(); fileDrop.classList.add('over'); });
+  fileDrop.addEventListener('dragleave', ()=>fileDrop.classList.remove('over'));
+  fileDrop.addEventListener('drop', e=>{
+    e.preventDefault(); fileDrop.classList.remove('over');
+    handleFiles(e.dataTransfer.files);
+  });
+  fileInput.addEventListener('change', ()=>handleFiles(fileInput.files));
+
+  function handleFiles(fileListObj){
+    const files = Array.from(fileListObj).filter(f=>f.name.toLowerCase().endsWith('.csv'));
+    let pending = files.length;
+    if(!pending) return;
+    files.forEach(f=>{
+      const reader = new FileReader();
+      reader.onload = ()=>{
+        uploadedFiles.push({ name: f.name, text: reader.result });
+        pending--;
+        if(pending === 0) renderFileList();
+      };
+      reader.readAsText(f);
+    });
+  }
+
+  function renderFileList(){
+    el('fileList').innerHTML = uploadedFiles.map((f,i)=>
+      `<div class="file-item"><span>${f.name}</span><span class="rm" data-i="${i}">remove</span></div>`
+    ).join('');
+    el('btnParse').disabled = uploadedFiles.length === 0;
+    el('fileList').querySelectorAll('.rm').forEach(btn=>{
+      btn.addEventListener('click', ()=>{
+        uploadedFiles.splice(Number(btn.getAttribute('data-i')), 1);
+        renderFileList();
+      });
+    });
+  }
+
+  // ---------- shared state ----------
+  let newData = null, oldData = null, oldSha = null, finalData = null;
+  let reviewRows = [];        // [{id, name, troop, tags, risky}] -- scouts this upload would change
+  const denied = new Set();   // member IDs the admin held back (their published record stays as-is)
+  const nameCache = new Map(); // member_id -> name, this session only (never written to the data file)
+
+  const esc = s => String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+  const contentsUrl = () => `https://api.github.com/repos/${connection.owner}/${connection.repo}/contents/${connection.path}`;
+
+  function utf8ToBase64(str){
+    return btoa(unescape(encodeURIComponent(str)));
+  }
+
+  // Loads the currently published data. Returns 'ok' | 'none' | 'error:<message>'
+  async function fetchPublished(){
+    oldData = null; oldSha = null;
+    try {
+      const res = await fetch(`${contentsUrl()}?ref=${encodeURIComponent(connection.branch)}`, { headers: ghHeaders(connection.token) });
+      if(res.ok){
+        const info = await res.json();
+        oldSha = info.sha;
+        oldData = JSON.parse(decodeURIComponent(escape(atob(info.content.replace(/\n/g,'')))));
+        oldData.scouts.forEach(s=>nameCache.set(s.member_id, s.name));
+        return 'ok';
+      }
+      if(res.status === 404) return 'none';
+      return `error:Couldn't fetch the currently published data (HTTP ${res.status}).`;
+    } catch(err){
+      return "error:Couldn't reach GitHub: " + err.message;
+    }
+  }
+
+  // Commits `data` as the new published file. Throws a friendly Error on failure.
+  async function commitData(data, message){
+    const body = { message, content: utf8ToBase64(JSON.stringify(data, null, 2)), branch: connection.branch };
+    if(oldSha) body.sha = oldSha;
+    const res = await fetch(contentsUrl(), {
+      method:'PUT', headers: { ...ghHeaders(connection.token), 'Content-Type':'application/json' }, body: JSON.stringify(body)
+    });
+    if(!res.ok){
+      const errBody = await res.json().catch(()=>({}));
+      if(res.status === 409 || res.status === 422){
+        throw new Error('The published data changed since this page loaded (another admin may have just published). Reload this page and try again.');
+      }
+      throw new Error(`GitHub rejected the publish (HTTP ${res.status}): ${errBody.message || 'unknown error'}`);
+    }
+    const out = await res.json();
+    oldData = data;
+    oldSha = out.content && out.content.sha;
+  }
+
+  // ---------- Step 2 -> 3: parse, then review ----------
+  el('btnParse').addEventListener('click', async ()=>{
+    setStatus('parseStatus', 'Parsing&hellip;', 'info');
+    try {
+      newData = TrackerParser.build(uploadedFiles);
+    } catch(err){
+      setStatus('parseStatus', 'Could not parse those files: ' + err.message + '. Make sure they\'re unmodified Scoutbook "Merit Badge In-Progress Report" CSV exports.', 'err');
+      return;
+    }
+    if(!newData.scouts.length){
+      setStatus('parseStatus', 'No scouts found in those files -- check you uploaded the right export.', 'err');
+      return;
+    }
+    newData.scouts.forEach(s=>nameCache.set(s.member_id, s.name));
+    setStatus('parseStatus', `Parsed ${newData.scouts.length} scouts across ${uploadedFiles.length} file(s).`, 'ok');
+    el('stepBadge2').classList.add('done');
+    el('stepBadge3').classList.remove('done');
+    el('cardReview').classList.remove('disabled');
+    setStatus('publishStatus', '', '');
+    const r = await fetchPublished();
+    if(r.startsWith('error:')){
+      setStatus('reviewDiff', r.slice(6) + ' Reload the page and try again — publishing without the current data would overwrite it.', 'err');
+      el('reviewStats').innerHTML = '';
+      el('btnPublish').disabled = true;
+      return;
+    }
+    buildRows();
+    renderReview();
+  });
+
+  function buildRows(){
+    reviewRows = [];
+    denied.clear();
+    if(!oldData) return;
+    const hidden = new Set((oldData.removed||[]).map(r=>r.member_id));
+    // compare what would actually be published (old record + this upload, with earned
+    // badges carried forward) against what is published now
+    const merged = TrackerParser.mergeUpdate(newData, oldData, {});
+    const mergedById = new Map(merged.scouts.map(s=>[s.member_id, s]));
+    const uploadIds = new Set(newData.scouts.map(s=>s.member_id));
+    for(const ns of newData.scouts){
+      if(hidden.has(ns.member_id)) continue;
+      const d = TrackerParser.diffScout(mergedById.get(ns.member_id) || ns, TrackerParser.matchPublished(oldData, ns, uploadIds));
+      if(d.changed) reviewRows.push({ id: ns.member_id, name: ns.name, troop: ns.troop, tags: d.tags, risky: d.risky });
+    }
+    reviewRows.sort((a,b)=> (Number(b.risky)-Number(a.risky)) || a.name.localeCompare(b.name));
+    // anything that would take earned badges away is held back until an admin ticks it on purpose
+    reviewRows.forEach(r=>{ if(r.risky) denied.add(r.id); });
+  }
+
+  function renderReview(){
+    let notes = '';
+    if(oldData){
+      const newIds = new Set(newData.scouts.map(s=>s.member_id));
+      const hiddenIds = new Set((oldData.removed||[]).map(r=>r.member_id));
+      const kept = oldData.scouts.filter(s=>!newIds.has(s.member_id)).length;
+      const ignored = newData.scouts.filter(s=>hiddenIds.has(s.member_id));
+      if(kept) notes += `<div class="status info">${kept} published scout${kept===1?'':'s'} ${kept===1?"isn't":"aren't"} in this upload and will be kept exactly as ${kept===1?'is':'they are'}. Uploads never remove anyone.</div>`;
+      if(ignored.length) notes += `<div class="status info">Ignoring ${ignored.length} scout${ignored.length===1?'':'s'} in this upload that an admin removed earlier: ${ignored.map(s=>esc(s.name)).join(', ')}. Use &ldquo;Remove scouts &rarr; Restore&rdquo; to bring them back.</div>`;
+    }
+
+    if(!oldData){
+      el('reviewDiff').innerHTML = `<div class="empty-note">No previously published data to compare against -- this will be the first publish.</div>`;
+    } else if(!reviewRows.length){
+      el('reviewDiff').innerHTML = notes + `<div class="empty-note">No scout-level changes detected vs. the currently published data.</div>`;
+    } else {
+      const riskyCount = reviewRows.filter(r=>r.risky).length;
+      const riskyNote = riskyCount ? `<div class="status err"><b>${riskyCount} scout${riskyCount===1?'':'s'} in this upload ${riskyCount===1?'is':'are'} missing earned badges that the tracker currently shows.</b> ${riskyCount===1?'That line starts':'Those lines start'} unticked (held back) so nothing is lost. Tick ${riskyCount===1?'it':'them'} only if the badges really should go.</div>` : '';
+      el('reviewDiff').innerHTML = notes + riskyNote + `
+        <div class="diff-controls">
+          <span>Untick any line to hold that scout back &mdash; they keep their currently published record.</span>
+          <span><a href="#" id="accAll">Accept all</a> &middot; <a href="#" id="holdAll">Hold all back</a></span>
+        </div>
+        <div class="diff-list">${reviewRows.map(r=>`
+          <label class="diff-row ${r.risky?'risky':''}">
+            <input type="checkbox" data-id="${r.id}" ${denied.has(r.id)?'':'checked'}>
+            <span class="who"><b>${esc(r.name)}</b> <small>Troop ${r.troop}</small></span>
+            <span class="tags">${r.tags.map(t=>`<span class="tag ${t.kind}">${esc(t.label)}</span>`).join('')}</span>
+          </label>`).join('')}
+        </div>`;
+    }
+    recompute();
+  }
+
+  // Rebuild what would be published from the current ticks, and refresh the numbers + button.
+  function recompute(){
+    finalData = oldData ? TrackerParser.mergeUpdate(newData, oldData, { skipIds: [...denied] }) : newData;
+    const held = reviewRows.filter(r=>denied.has(r.id)).length;
+    const accepted = reviewRows.length - held;
+    const eagleReady = finalData.scouts.filter(s=>s.eagle_ready).length;
+    el('reviewStats').innerHTML = `
+      <div class="stat"><div class="n">${finalData.scouts.length}</div><div class="l">Scouts (published total)</div></div>
+      <div class="stat"><div class="n">${eagleReady}</div><div class="l">Eagle ready</div></div>
+      <div class="stat"><div class="n">${oldData ? accepted + ' of ' + reviewRows.length : newData.scouts.length}</div><div class="l">${oldData ? 'Changes to publish' : 'Scouts in this upload'}</div></div>
+      <div class="stat"><div class="n">${held}</div><div class="l">Held back</div></div>
+    `;
+    const btn = el('btnPublish');
+    if(oldData){
+      btn.textContent = accepted ? `Publish ${accepted} change${accepted===1?'':'s'}` : 'Nothing to publish';
+      btn.disabled = accepted === 0;
+    } else {
+      btn.textContent = 'Publish to GitHub';
+      btn.disabled = false;
+    }
+  }
+
+  el('reviewDiff').addEventListener('change', e=>{
+    const cb = e.target.closest('input[data-id]');
+    if(!cb) return;
+    const id = Number(cb.getAttribute('data-id'));
+    if(cb.checked) denied.delete(id); else denied.add(id);
+    recompute();
+  });
+  el('reviewDiff').addEventListener('click', e=>{
+    if(e.target.id === 'accAll' || e.target.id === 'holdAll'){
+      e.preventDefault();
+      reviewRows.forEach(r=>{ if(e.target.id === 'accAll') denied.delete(r.id); else denied.add(r.id); });
+      el('reviewDiff').querySelectorAll('input[data-id]').forEach(cb=>{ cb.checked = !denied.has(Number(cb.getAttribute('data-id'))); });
+      recompute();
+    }
+  });
+
+  el('btnPublish').addEventListener('click', async ()=>{
+    if(!connection || !finalData) return;
+    setStatus('publishStatus', 'Publishing&hellip;', 'info');
+    el('btnPublish').disabled = true;
+    try {
+      const held = reviewRows.filter(r=>denied.has(r.id)).length;
+      const accepted = reviewRows.length - held;
+      await commitData(finalData, `Update merit badge tracker data (${finalData.export_date}) — ${oldData && reviewRows.length ? accepted + ' scout update(s)' : 'initial publish'}${held ? ', ' + held + ' held back' : ''}`);
+      el('stepBadge3').classList.add('done');
+      setStatus('publishStatus', `Published. GitHub Pages will redeploy in a minute or two -- then the tracker will show this data.`, 'ok');
+      renderManage();
+    } catch(err){
+      setStatus('publishStatus', err.message, 'err');
+      el('btnPublish').disabled = false;
+    }
+  });
+
+  // ---------- Remove / restore scouts ----------
+  const manageSel = new Set();
+
+  async function refreshManage(){
+    setStatus('manageStatus', 'Loading published scouts&hellip;', 'info');
+    const r = await fetchPublished();
+    if(r.startsWith('error:')) setStatus('manageStatus', r.slice(6), 'err');
+    else setStatus('manageStatus', '', '');
+    renderManage();
+  }
+
+  function renderManage(){
+    manageSel.forEach(id=>{ if(!oldData || !oldData.scouts.some(s=>s.member_id===id)) manageSel.delete(id); });
+    el('manageConfirm').innerHTML = '';
+    if(!oldData){
+      el('manageBody').innerHTML = `<div class="empty-note">Nothing published yet.</div>`;
+      el('removedBox').innerHTML = '';
+      updateRemoveBtn();
+      return;
+    }
+    const q = (el('manageFilter').value || '').trim().toLowerCase();
+    const byTroop = new Map();
+    for(const s of oldData.scouts){
+      if(q && !s.name.toLowerCase().includes(q)) continue;
+      if(!byTroop.has(s.troop)) byTroop.set(s.troop, []);
+      byTroop.get(s.troop).push(s);
+    }
+    const html = [...byTroop.keys()].sort((a,b)=>a-b).map(t=>`
+      <div class="pick-group">Troop ${t} (${byTroop.get(t).length})</div>
+      ${byTroop.get(t).sort((a,b)=>a.name.localeCompare(b.name)).map(s=>`
+        <label class="pick"><input type="checkbox" data-mid="${s.member_id}" ${manageSel.has(s.member_id)?'checked':''}>
+          <span>${esc(s.name)}</span><small>${esc(s.rank||'')} &middot; ${s.total} badge${s.total===1?'':'s'}</small></label>`).join('')}
+    `).join('');
+    el('manageBody').innerHTML = html || `<div class="empty-note">No scouts match that search.</div>`;
+
+    const removed = oldData.removed || [];
+    el('removedBox').innerHTML = removed.length ? `
+      <div class="pick-group">Removed scouts &mdash; ignored in uploads (${removed.length})</div>
+      ${removed.map(r=>`
+        <div class="pick removed-row"><span>${nameCache.has(r.member_id) ? esc(nameCache.get(r.member_id)) : 'Scoutbook member ID ' + r.member_id}</span>
+          <small>removed ${esc(r.removed_on||'')}</small>
+          <button class="btn mini" type="button" data-restore="${r.member_id}">Restore</button></div>`).join('')}
+      <div class="hint">Names of removed scouts are not stored in the data file. Restoring lets that scout be picked up again by the next upload that includes them.</div>` : '';
+    updateRemoveBtn();
+  }
+
+  function updateRemoveBtn(){
+    const n = manageSel.size;
+    el('btnRemoveSel').disabled = n === 0;
+    el('btnRemoveSel').textContent = n ? `Remove ${n} selected…` : 'Remove selected…';
+  }
+
+  el('manageFilter').addEventListener('input', renderManage);
+  el('manageBody').addEventListener('change', e=>{
+    const cb = e.target.closest('input[data-mid]');
+    if(!cb) return;
+    const id = Number(cb.getAttribute('data-mid'));
+    if(cb.checked) manageSel.add(id); else manageSel.delete(id);
+    el('manageConfirm').innerHTML = '';
+    updateRemoveBtn();
+  });
+
+  el('btnRemoveSel').addEventListener('click', ()=>{
+    if(!manageSel.size || !oldData) return;
+    const names = oldData.scouts.filter(s=>manageSel.has(s.member_id)).map(s=>esc(s.name));
+    el('manageConfirm').innerHTML = `
+      <div class="status err"><b>Remove ${names.length} scout${names.length===1?'':'s'}?</b><br>${names.join(', ')}<br>
+      They will disappear from the published tracker and be ignored by future uploads until you restore them.</div>
+      <button class="btn danger" id="btnConfirmRemove" type="button">Yes, remove and publish</button>
+      <button class="btn" id="btnCancelRemove" type="button">Cancel</button>`;
+  });
+  el('manageConfirm').addEventListener('click', async e=>{
+    if(e.target.id === 'btnCancelRemove'){ el('manageConfirm').innerHTML = ''; return; }
+    if(e.target.id !== 'btnConfirmRemove') return;
+    const ids = [...manageSel];
+    e.target.disabled = true;
+    setStatus('manageStatus', 'Publishing&hellip;', 'info');
+    try {
+      const today = new Date().toISOString().slice(0,10);
+      await commitData(TrackerParser.removeScouts(oldData, ids, today), `Remove ${ids.length} scout${ids.length===1?'':'s'} from tracker`);
+      manageSel.clear();
+      setStatus('manageStatus', `Removed ${ids.length} scout${ids.length===1?'':'s'}. GitHub Pages will redeploy in a minute or two.`, 'ok');
+      renderManage();
+      if(newData){ buildRows(); renderReview(); }
+    } catch(err){
+      setStatus('manageStatus', err.message, 'err');
+      e.target.disabled = false;
+    }
+  });
+  el('removedBox').addEventListener('click', async e=>{
+    const btn = e.target.closest('button[data-restore]');
+    if(!btn) return;
+    btn.disabled = true;
+    setStatus('manageStatus', 'Publishing&hellip;', 'info');
+    try {
+      await commitData(TrackerParser.restoreScouts(oldData, [Number(btn.getAttribute('data-restore'))]), 'Restore 1 scout (will be picked up by the next upload)');
+      setStatus('manageStatus', 'Restored. They\'ll reappear the next time an upload includes them.', 'ok');
+      renderManage();
+      if(newData){ buildRows(); renderReview(); }
+    } catch(err){
+      setStatus('manageStatus', err.message, 'err');
+      btn.disabled = false;
+    }
+  });
+})();
+</script>
+</body>
+</html>
