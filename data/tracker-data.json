@@ -41,7 +41,12 @@
       "genDate": "2026-11-02"
     }
   ],
-  "removed": [],
+  "removed": [
+    {
+      "member_id": 141423203,
+      "removed_on": "2026-11-02"
+    }
+  ],
   "scouts": [
     {
       "member_id": 141171903,
@@ -4965,218 +4970,6 @@
       ]
     },
     {
-      "member_id": 141423203,
-      "name": "Michael Leisz",
-      "troop": 533,
-      "rank": "Life",
-      "total": 29,
-      "er": 8,
-      "need_er": 5,
-      "need_total": 0,
-      "eagle_ready": false,
-      "required_checklist": [
-        {
-          "type": "single",
-          "badge": "Camping",
-          "done": true,
-          "date": "09/16/2024"
-        },
-        {
-          "type": "single",
-          "badge": "Citizenship in the Community",
-          "done": false,
-          "date": null
-        },
-        {
-          "type": "single",
-          "badge": "Citizenship in the Nation",
-          "done": true,
-          "date": "08/09/2022"
-        },
-        {
-          "type": "single",
-          "badge": "Citizenship in the World",
-          "done": false,
-          "date": null
-        },
-        {
-          "type": "single",
-          "badge": "Communication",
-          "done": true,
-          "date": "05/07/2022"
-        },
-        {
-          "type": "single",
-          "badge": "Cooking",
-          "done": true,
-          "date": "09/16/2024"
-        },
-        {
-          "type": "single",
-          "badge": "Family Life",
-          "done": false,
-          "date": null
-        },
-        {
-          "type": "single",
-          "badge": "First Aid",
-          "done": true,
-          "date": "05/15/2021"
-        },
-        {
-          "type": "single",
-          "badge": "Personal Fitness",
-          "done": true,
-          "date": "02/06/2023"
-        },
-        {
-          "type": "single",
-          "badge": "Personal Management",
-          "done": false,
-          "date": null
-        },
-        {
-          "type": "group",
-          "group": "Fitness (choose 1)",
-          "options": [
-            "Cycling",
-            "Hiking",
-            "Swimming"
-          ],
-          "earned": "Hiking",
-          "date": "05/16/2023",
-          "earned_options": [
-            "Hiking"
-          ]
-        },
-        {
-          "type": "group",
-          "group": "Safety (choose 1)",
-          "options": [
-            "Emergency Preparedness",
-            "Lifesaving"
-          ],
-          "earned": null,
-          "date": null,
-          "earned_options": []
-        },
-        {
-          "type": "group",
-          "group": "Environment (choose 1)",
-          "options": [
-            "Environmental Science",
-            "Sustainability"
-          ],
-          "earned": "Sustainability",
-          "date": "06/02/2025",
-          "earned_options": [
-            "Sustainability"
-          ]
-        }
-      ],
-      "awaiting_signoff": [],
-      "in_progress": [
-        {
-          "badge": "Space Exploration",
-          "mbc": "Shad Plante",
-          "remaining": "2, 3, 3a, 3b, 3c, 3d, 3e, 3f, 3g, 3h, 3i, 4, 4a, 4c, 5, (1 of 5b, 5c), 7, 7a, 7b, 7c, 7d",
-          "required": false
-        },
-        {
-          "badge": "Wood Carving",
-          "mbc": "",
-          "remaining": "5, 6, 7",
-          "required": false
-        }
-      ],
-      "elective_earned": [
-        {
-          "badge": "Composite Materials",
-          "date": "12/08/2025"
-        },
-        {
-          "badge": "Citizenship in Society",
-          "date": "06/02/2025"
-        },
-        {
-          "badge": "Snow Sports",
-          "date": "02/24/2025"
-        },
-        {
-          "badge": "Disabilities Awareness",
-          "date": "01/20/2025"
-        },
-        {
-          "badge": "Canoeing",
-          "date": "09/16/2024"
-        },
-        {
-          "badge": "Game Design",
-          "date": "07/12/2024"
-        },
-        {
-          "badge": "Search and Rescue",
-          "date": "07/12/2024"
-        },
-        {
-          "badge": "Shotgun Shooting",
-          "date": "07/12/2024"
-        },
-        {
-          "badge": "Woodwork",
-          "date": "06/15/2024"
-        },
-        {
-          "badge": "Public Speaking",
-          "date": "05/13/2024"
-        },
-        {
-          "badge": "Aviation",
-          "date": "02/05/2024"
-        },
-        {
-          "badge": "Astronomy",
-          "date": "06/23/2023"
-        },
-        {
-          "badge": "Photography",
-          "date": "06/23/2023"
-        },
-        {
-          "badge": "Signs, Signals, and Codes",
-          "date": "06/23/2023"
-        },
-        {
-          "badge": "Climbing",
-          "date": "06/24/2022"
-        },
-        {
-          "badge": "Kayaking",
-          "date": "06/24/2022"
-        },
-        {
-          "badge": "Robotics",
-          "date": "06/24/2022"
-        },
-        {
-          "badge": "Plumbing",
-          "date": "04/11/2022"
-        },
-        {
-          "badge": "Archery",
-          "date": "06/24/2021"
-        },
-        {
-          "badge": "Chemistry",
-          "date": "06/24/2021"
-        },
-        {
-          "badge": "Fire Safety",
-          "date": "05/15/2021"
-        }
-      ]
-    },
-    {
       "member_id": 14508196,
       "name": "Nathanael Mace",
       "troop": 533,
@@ -8409,13 +8202,6 @@
       "required_group": null,
       "scouts": [
         {
-          "name": "Michael Leisz",
-          "troop": 533,
-          "status": "earned",
-          "date": "06/24/2021",
-          "mbc": ""
-        },
-        {
           "name": "Addie Hynek",
           "troop": 1533,
           "status": "progress",
@@ -8688,13 +8474,6 @@
       "required_group": null,
       "scouts": [
         {
-          "name": "Michael Leisz",
-          "troop": 533,
-          "status": "earned",
-          "date": "06/23/2023",
-          "mbc": ""
-        },
-        {
           "name": "Gwyneth Hamker",
           "troop": 1533,
           "status": "earned",
@@ -8826,13 +8605,6 @@
       "category": "elective",
       "required_group": null,
       "scouts": [
-        {
-          "name": "Michael Leisz",
-          "troop": 533,
-          "status": "earned",
-          "date": "02/05/2024",
-          "mbc": ""
-        },
         {
           "name": "Ari Hellon",
           "troop": 533,
@@ -9106,13 +8878,6 @@
       "required_group": null,
       "scouts": [
         {
-          "name": "Michael Leisz",
-          "troop": 533,
-          "status": "earned",
-          "date": "09/16/2024",
-          "mbc": ""
-        },
-        {
           "name": "Ari Hellon",
           "troop": 533,
           "status": "earned",
@@ -9218,13 +8983,6 @@
       "required_group": null,
       "scouts": [
         {
-          "name": "Michael Leisz",
-          "troop": 533,
-          "status": "earned",
-          "date": "09/16/2024",
-          "mbc": ""
-        },
-        {
           "name": "Addie Hynek",
           "troop": 1533,
           "status": "progress",
@@ -9329,13 +9087,6 @@
       "category": "elective",
       "required_group": null,
       "scouts": [
-        {
-          "name": "Michael Leisz",
-          "troop": 533,
-          "status": "earned",
-          "date": "06/24/2021",
-          "mbc": ""
-        },
         {
           "name": "Ari Hellon",
           "troop": 533,
@@ -9497,13 +9248,6 @@
       "category": "elective",
       "required_group": null,
       "scouts": [
-        {
-          "name": "Michael Leisz",
-          "troop": 533,
-          "status": "earned",
-          "date": "06/02/2025",
-          "mbc": ""
-        },
         {
           "name": "Ari Hellon",
           "troop": 533,
@@ -9785,13 +9529,6 @@
       "required_group": null,
       "scouts": [
         {
-          "name": "Michael Leisz",
-          "troop": 533,
-          "status": "earned",
-          "date": "08/09/2022",
-          "mbc": ""
-        },
-        {
           "name": "Ari Hellon",
           "troop": 533,
           "status": "earned",
@@ -9917,13 +9654,6 @@
       "category": "elective",
       "required_group": null,
       "scouts": [
-        {
-          "name": "Michael Leisz",
-          "troop": 533,
-          "status": "earned",
-          "date": "06/24/2022",
-          "mbc": ""
-        },
         {
           "name": "Ari Hellon",
           "troop": 533,
@@ -10142,13 +9872,6 @@
       "required_group": null,
       "scouts": [
         {
-          "name": "Michael Leisz",
-          "troop": 533,
-          "status": "earned",
-          "date": "05/07/2022",
-          "mbc": ""
-        },
-        {
           "name": "Addie Hynek",
           "troop": 1533,
           "status": "earned",
@@ -10231,13 +9954,6 @@
       "category": "elective",
       "required_group": null,
       "scouts": [
-        {
-          "name": "Michael Leisz",
-          "troop": 533,
-          "status": "earned",
-          "date": "12/08/2025",
-          "mbc": ""
-        },
         {
           "name": "Addie Hynek",
           "troop": 1533,
@@ -10406,13 +10122,6 @@
       "category": "required_fixed",
       "required_group": null,
       "scouts": [
-        {
-          "name": "Michael Leisz",
-          "troop": 533,
-          "status": "earned",
-          "date": "09/16/2024",
-          "mbc": ""
-        },
         {
           "name": "Ari Hellon",
           "troop": 533,
@@ -10672,13 +10381,6 @@
       "category": "elective",
       "required_group": null,
       "scouts": [
-        {
-          "name": "Michael Leisz",
-          "troop": 533,
-          "status": "earned",
-          "date": "01/20/2025",
-          "mbc": ""
-        },
         {
           "name": "Ari Hellon",
           "troop": 533,
@@ -11269,13 +10971,6 @@
       "required_group": null,
       "scouts": [
         {
-          "name": "Michael Leisz",
-          "troop": 533,
-          "status": "earned",
-          "date": "05/15/2021",
-          "mbc": ""
-        },
-        {
           "name": "Leah Burwell",
           "troop": 1533,
           "status": "progress",
@@ -11296,13 +10991,6 @@
       "category": "required_fixed",
       "required_group": null,
       "scouts": [
-        {
-          "name": "Michael Leisz",
-          "troop": 533,
-          "status": "earned",
-          "date": "05/15/2021",
-          "mbc": ""
-        },
         {
           "name": "Ari Hellon",
           "troop": 533,
@@ -11694,13 +11382,6 @@
       "category": "elective",
       "required_group": null,
       "scouts": [
-        {
-          "name": "Michael Leisz",
-          "troop": 533,
-          "status": "earned",
-          "date": "07/12/2024",
-          "mbc": ""
-        },
         {
           "name": "Addie Hynek",
           "troop": 1533,
@@ -12098,13 +11779,6 @@
       "required_group": "Fitness (choose 1)",
       "scouts": [
         {
-          "name": "Michael Leisz",
-          "troop": 533,
-          "status": "earned",
-          "date": "05/16/2023",
-          "mbc": ""
-        },
-        {
           "name": "John Burwell",
           "troop": 533,
           "status": "earned",
@@ -12265,13 +11939,6 @@
       "category": "elective",
       "required_group": null,
       "scouts": [
-        {
-          "name": "Michael Leisz",
-          "troop": 533,
-          "status": "earned",
-          "date": "06/24/2022",
-          "mbc": ""
-        },
         {
           "name": "Addie Hynek",
           "troop": 1533,
@@ -13018,13 +12685,6 @@
       "required_group": null,
       "scouts": [
         {
-          "name": "Michael Leisz",
-          "troop": 533,
-          "status": "earned",
-          "date": "02/06/2023",
-          "mbc": ""
-        },
-        {
           "name": "Ari Hellon",
           "troop": 533,
           "status": "earned",
@@ -13235,13 +12895,6 @@
       "required_group": null,
       "scouts": [
         {
-          "name": "Michael Leisz",
-          "troop": 533,
-          "status": "earned",
-          "date": "06/23/2023",
-          "mbc": ""
-        },
-        {
           "name": "Ari Hellon",
           "troop": 533,
           "status": "earned",
@@ -13414,15 +13067,7 @@
       "name": "Plumbing",
       "category": "elective",
       "required_group": null,
-      "scouts": [
-        {
-          "name": "Michael Leisz",
-          "troop": 533,
-          "status": "earned",
-          "date": "04/11/2022",
-          "mbc": ""
-        }
-      ]
+      "scouts": []
     },
     {
       "name": "Pottery",
@@ -13588,13 +13233,6 @@
       "category": "elective",
       "required_group": null,
       "scouts": [
-        {
-          "name": "Michael Leisz",
-          "troop": 533,
-          "status": "earned",
-          "date": "05/13/2024",
-          "mbc": ""
-        },
         {
           "name": "Ari Hellon",
           "troop": 533,
@@ -13875,13 +13513,6 @@
       "required_group": null,
       "scouts": [
         {
-          "name": "Michael Leisz",
-          "troop": 533,
-          "status": "earned",
-          "date": "06/24/2022",
-          "mbc": ""
-        },
-        {
           "name": "Ari Hellon",
           "troop": 533,
           "status": "earned",
@@ -14140,13 +13771,6 @@
       "required_group": null,
       "scouts": [
         {
-          "name": "Michael Leisz",
-          "troop": 533,
-          "status": "earned",
-          "date": "07/12/2024",
-          "mbc": ""
-        },
-        {
           "name": "Mason Burdette",
           "troop": 533,
           "status": "progress",
@@ -14160,13 +13784,6 @@
       "category": "elective",
       "required_group": null,
       "scouts": [
-        {
-          "name": "Michael Leisz",
-          "troop": 533,
-          "status": "earned",
-          "date": "07/12/2024",
-          "mbc": ""
-        },
         {
           "name": "Ari Hellon",
           "troop": 533,
@@ -14223,13 +13840,6 @@
       "category": "elective",
       "required_group": null,
       "scouts": [
-        {
-          "name": "Michael Leisz",
-          "troop": 533,
-          "status": "earned",
-          "date": "06/23/2023",
-          "mbc": ""
-        },
         {
           "name": "Daniel Shan",
           "troop": 533,
@@ -14343,13 +13953,6 @@
       "required_group": null,
       "scouts": [
         {
-          "name": "Michael Leisz",
-          "troop": 533,
-          "status": "earned",
-          "date": "02/24/2025",
-          "mbc": ""
-        },
-        {
           "name": "Ari Hellon",
           "troop": 533,
           "status": "earned",
@@ -14433,13 +14036,6 @@
       "category": "elective",
       "required_group": null,
       "scouts": [
-        {
-          "name": "Michael Leisz",
-          "troop": 533,
-          "status": "progress",
-          "remaining": "2, 3, 3a, 3b, 3c, 3d, 3e, 3f, 3g, 3h, 3i, 4, 4a, 4c, 5, (1 of 5b, 5c), 7, 7a, 7b, 7c, 7d",
-          "mbc": "Shad Plante"
-        },
         {
           "name": "Ari Hellon",
           "troop": 533,
@@ -14640,13 +14236,6 @@
       "category": "alt_environment",
       "required_group": "Environment (choose 1)",
       "scouts": [
-        {
-          "name": "Michael Leisz",
-          "troop": 533,
-          "status": "earned",
-          "date": "06/02/2025",
-          "mbc": ""
-        },
         {
           "name": "Addie Hynek",
           "troop": 1533,
@@ -15575,13 +15164,6 @@
       "required_group": null,
       "scouts": [
         {
-          "name": "Michael Leisz",
-          "troop": 533,
-          "status": "progress",
-          "remaining": "5, 6, 7",
-          "mbc": ""
-        },
-        {
           "name": "Ari Hellon",
           "troop": 533,
           "status": "earned",
@@ -15728,13 +15310,6 @@
       "category": "elective",
       "required_group": null,
       "scouts": [
-        {
-          "name": "Michael Leisz",
-          "troop": 533,
-          "status": "earned",
-          "date": "06/15/2024",
-          "mbc": ""
-        },
         {
           "name": "Ari Hellon",
           "troop": 533,
